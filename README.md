@@ -4,6 +4,4 @@ Este repositorio es de una aplicación de marketplace que desarrollé en React m
 A continuación dejo el enlace al diseño:
 https://www.figma.com/file/kOnNF7b3rNoH4JTo2bELf3/NFT-MarketPlace-(Community)?type=design&node-id=0%3A1&t=zzxif3P0x8HwykG0-1
 
-
-
-(https://raw.githubusercontent.com/AdrianMtz15/NFT-Marketplace-React/main/src/assets/Mockup-1.png)
+![Previsualizacion de la App Web](https://raw.githubusercontent.com/AdrianMtz15/NFT-Marketplace-React/main/src/assets/Mockup-1.png)
