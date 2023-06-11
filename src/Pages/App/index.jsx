@@ -1,6 +1,9 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
 
-import { Home } from '../Home';
+import { Navbar } from '../../Components/Navbar';
+import { Dashboard } from '../Dashboard';
+import { Marketplace } from '../Marketplace';
+import { MyCollection } from '../MyCollection';
 import { MyAccount } from '../MyAccount';
 import { MyOrder } from '../MyOrder';
 import { MyOrders } from '../MyOrders';
@@ -9,10 +12,11 @@ import { SignIn } from '../SignIn';
 
 import './App.css';
 
-
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: '/', element: <Home/> },
+    { path: '/', element: <Dashboard/> },
+    { path: '/marketplace', element: <Marketplace/> },
+    { path: '/my-collection', element: <MyCollection/> },
     { path: '/my-account', element: <MyAccount/> },
     { path: '/my-order', element: <MyOrder/> },
     { path: '/my-orders', element: <MyOrders/> },
@@ -27,7 +31,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AppRoutes></AppRoutes>
+      <AppRoutes/>
+      <Navbar/>
     </BrowserRouter>
   )
 }
