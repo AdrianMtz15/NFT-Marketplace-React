@@ -1,9 +1,64 @@
 import { Browser } from "../../Components/Browser";
 import { Button } from "../../Components/Button";
+import { Card } from "../../Components/Card";
+import { useState, useEffect } from "react";
 
 import banner from "../../assets/img/dashboard-banner.png";
+// import profilePhoto from "../../assets/img/prueba-perfil.png";
+
+const items = [
+  {
+    id: 1,
+    title: "The Future wave #23",
+    endingIn: "12h 14m 3s",
+    currentBid: "0.24 BTC",
+    imgSrc: "https://drive.google.com/uc?export=download&id=1taGz_RAL3M2GMVERsseUrU2YzYobDRIj",
+    profile: {
+      email: "",
+      imgSrc: ""
+    }
+  },
+  {
+    id: 2,
+    title: "Astro World #244",
+    endingIn: "12h 14m 3s",
+    currentBid: "0.24 BTC",
+    imgSrc: "https://drive.google.com/uc?export=download&id=1CPCX9e5KhmrueKv7e8i3nmghfr_jB2GE",
+    profile: {
+      email: "",
+      imgSrc: ""
+    }
+  },
+  {
+    id: 3,
+    title: "Cyber Art #234",
+    endingIn: "12h 14m 3s",
+    currentBid: "0.24 BTC",
+    imgSrc: "https://drive.google.com/uc?export=download&id=1dHewh9_BC1mH3-w6FK8yeoLYQuJMASiB",
+    profile: {
+      email: "",
+      imgSrc: ""
+    }
+  }
+]
 
 function Dashboard() {
+  // const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async() => {
+      try {
+        fetch('https://fakestoreapi.com/products/21')
+        .then(response => console.log(response))
+      } catch(err){
+        console.log(err);
+      }
+
+    }
+
+    fetchData();
+
+  }, []);
 
   return (
     <section className="relative p-[2.5%] ml-[20vw] w-[50%]">
@@ -21,6 +76,16 @@ function Dashboard() {
         </div>
         <img className="absolute bottom-0 right-[1.5vw] w-[25vw]" src={banner} alt="banner" />
       </div>
+
+    <div className="flex flex-row w-full h-max-h">
+      {
+        items?.map((item) => (
+          <Card key={item.id} data={item}/>
+        ))
+      }
+    </div>
+
+
     </section>
   )
 }

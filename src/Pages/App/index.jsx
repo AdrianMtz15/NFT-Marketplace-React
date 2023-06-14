@@ -9,6 +9,7 @@ import { MyOrder } from '../MyOrder';
 import { MyOrders } from '../MyOrders';
 import { NotFound } from '../NotFound';
 import { SignIn } from '../SignIn';
+import { Sidebar } from '../../Components/Sidebar';
 
 import './App.css';
 
@@ -33,6 +34,7 @@ function App() {
     <BrowserRouter>
       <AppRoutes/>
       <Navbar/>
+      <Sidebar/>
     </BrowserRouter>
   )
 }

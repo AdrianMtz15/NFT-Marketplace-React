@@ -1,52 +1,67 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import './index.css';
 
 import arrowRightIcon from '../../assets/ico/arrow-right.png';
 
 import { ReactComponent as HomeIcon } from '../../assets/ico/home.svg';
-// import homeIcon from '../../assets/ico/home.svg';
-// import categoryIcon from '../../assets/ico/category.svg';
-// import folderIcon from '../../assets/ico/folder.svg';
-// import settingIcon from '../../assets/ico/setting.svg';
-// import walletIcon from '../../assets/ico/wallet.svg';
+import { ReactComponent as CategoryIcon } from '../../assets/ico/category.svg';
+import { ReactComponent as FolderIcon } from '../../assets/ico/folder.svg';
+import { ReactComponent as SettingIcon } from '../../assets/ico/setting.svg';
+import { ReactComponent as WalletIcon } from '../../assets/ico/wallet.svg';
+
 
 function Navbar() {
     const navActive = 'text-[#0997FF] font-bold';
     const liFontSize = 'text-[16px]';
+    const location = useLocation();
+
+    const navLinkActive = (path) => {
+      return location.pathname === path;
+    };
 
     return(
         <>
-            <nav className="overflow-auto fixed top-0 w-[20vw] h-[100vh] pt-32 border-solid border border-[#D9D9D9]">
+            <nav className="overflow-auto fixed top-0 w-[20vw] h-[100vh] pt-[30px] border-solid border border-[#D9D9D9]">
                 <ul className="ml-[20%]">
-                    <li className={`${liFontSize} mb-6 font-sans`}>
-                        <NavLink to={'/'} className={({isActive}) => isActive ? navActive: undefined}>
-                            <div className="flex flex-row w-[15vw] justify-start">
-                                {/* <img src={homeIcon} alt="home-icon" fill=""/> */}
-                                {/* <svg src={homeIcon} alt="home-icon" fill="4D4A4A"/> */}
-                                <HomeIcon fill='#4D4A4A'/>
+                    <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
+                        <NavLink to={'/'} className={({isActive}) => isActive ? navActive : undefined}>
+                            <div className="flex flex-row justify-start">
+                                <HomeIcon fill={navLinkActive('/') ? '#0997FF' : '#4D4A4A'}/>
                                 <p className="ml-[1vw]">Dashboard</p>
                             </div>
                         </NavLink>
                     </li>
-                    <li className={`${liFontSize} mb-6 font-sans`}>
+                    <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/marketplace'} className={({isActive}) => isActive ? navActive: undefined}>
-                            Marketplace
+                            <div className="flex flex-row w-[15vw] justify-start">
+                                <CategoryIcon fill={navLinkActive('/marketplace') ? '#0997FF' : '#4D4A4A'}/>
+                                <p className="ml-[1vw]">Marketplace</p>
+                            </div>
                         </NavLink>
                     </li>
-                    <li className={`${liFontSize} mb-6 font-sans`}>
+                    <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/my-collection'} className={({isActive}) => isActive ? navActive: undefined}>
-                            My Collection
+                            <div className="flex flex-row w-[15vw] justify-start">
+                                <FolderIcon fill={navLinkActive('/my-collection') ? '#0997FF' : '#4D4A4A'}/>
+                                <p className="ml-[1vw]">My Collection</p>
+                            </div>
                         </NavLink>
                     </li>
-                    <li className={`${liFontSize} mb-6 font-sans`}>
+                    <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/my-orders'} className={({isActive}) => isActive ? navActive: undefined}>
-                            Cart
+                            <div className="flex flex-row w-[15vw] justify-start">
+                                <WalletIcon fill={navLinkActive('/my-orders') ? '#0997FF' : '#4D4A4A'}/>
+                                <p className="ml-[1vw]">Cart</p>
+                            </div>
                         </NavLink>
                     </li>
-                    <li className={`${liFontSize} mb-60 font-sans`}>
+                    <li className={`${liFontSize} mb-60 font-sans max-w-max`}>
                         <NavLink to={'/my-account'} className={({isActive}) => isActive ? navActive: undefined}>
-                            My Account
+                            <div className="flex flex-row w-[15vw] justify-start">
+                                <SettingIcon fill={navLinkActive('/my-account') ? '#0997FF' : '#4D4A4A'}/>
+                                <p className="ml-[1vw]">My Account</p>
+                            </div>
                         </NavLink>
                     </li>
                 </ul>
