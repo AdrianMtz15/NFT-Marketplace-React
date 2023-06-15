@@ -34,7 +34,7 @@ function Navbar() {
                     </li>
                     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/marketplace'} className={({isActive}) => isActive ? navActive: undefined}>
-                            <div className="flex flex-row w-[15vw] justify-start">
+                            <div className="flex flex-row justify-start">
                                 <CategoryIcon fill={navLinkActive('/marketplace') ? '#0997FF' : '#4D4A4A'}/>
                                 <p className="ml-[1vw]">Marketplace</p>
                             </div>
@@ -42,7 +42,7 @@ function Navbar() {
                     </li>
                     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/my-collection'} className={({isActive}) => isActive ? navActive: undefined}>
-                            <div className="flex flex-row w-[15vw] justify-start">
+                            <div className="flex flex-row justify-start">
                                 <FolderIcon fill={navLinkActive('/my-collection') ? '#0997FF' : '#4D4A4A'}/>
                                 <p className="ml-[1vw]">My Collection</p>
                             </div>
@@ -50,7 +50,7 @@ function Navbar() {
                     </li>
                     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/my-orders'} className={({isActive}) => isActive ? navActive: undefined}>
-                            <div className="flex flex-row w-[15vw] justify-start">
+                            <div className="flex flex-row justify-start">
                                 <WalletIcon fill={navLinkActive('/my-orders') ? '#0997FF' : '#4D4A4A'}/>
                                 <p className="ml-[1vw]">Cart</p>
                             </div>
@@ -58,7 +58,7 @@ function Navbar() {
                     </li>
                     <li className={`${liFontSize} mb-60 font-sans max-w-max`}>
                         <NavLink to={'/my-account'} className={({isActive}) => isActive ? navActive: undefined}>
-                            <div className="flex flex-row w-[15vw] justify-start">
+                            <div className="flex flex-row justify-start">
                                 <SettingIcon fill={navLinkActive('/my-account') ? '#0997FF' : '#4D4A4A'}/>
                                 <p className="ml-[1vw]">My Account</p>
                             </div>
