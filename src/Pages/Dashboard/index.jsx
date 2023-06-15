@@ -61,7 +61,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <section className="relative p-[2.5%] ml-[20vw] w-[50%]">
+    <section className="relative p-[2.5%] ml-[20vw] w-[50vw]">
       <Browser/>
 
       <div className="mt-[3.1vh] relative flex flex-row bg-[url('../../assets/img/banner-mask.png')] min-h-[max-content] py-[2.4vh] px-[2.6vw] w-[100%] h-[29vh] bg-[#0997FF] opacity-90 rounded-[12px]">
