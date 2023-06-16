@@ -49,9 +49,9 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
-                        <NavLink to={'/my-orders'} className={({isActive}) => isActive ? navActive: undefined}>
+                        <NavLink to={'/cart'} className={({isActive}) => isActive ? navActive: undefined}>
                             <div className="flex flex-row justify-start">
-                                <WalletIcon fill={navLinkActive('/my-orders') ? '#0997FF' : '#4D4A4A'}/>
+                                <WalletIcon fill={navLinkActive('/cart') ? '#0997FF' : '#4D4A4A'}/>
                                 <p className="ml-[1vw]">Cart</p>
                             </div>
                         </NavLink>

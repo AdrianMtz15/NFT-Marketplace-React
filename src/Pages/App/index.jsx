@@ -1,14 +1,13 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
 
-import { CartProvider } from '../../Context';
+import { ItemProvider } from '../../Context';
 
 import { Navbar } from '../../Components/Navbar';
 import { Dashboard } from '../Dashboard';
 import { Marketplace } from '../Marketplace';
 import { MyCollection } from '../MyCollection';
 import { MyAccount } from '../MyAccount';
-import { MyOrder } from '../MyOrder';
-import { MyOrders } from '../MyOrders';
+import { Cart } from '../Cart';
 import { NotFound } from '../NotFound';
 import { SignIn } from '../SignIn';
 import { Sidebar } from '../../Components/Sidebar';
@@ -21,8 +20,7 @@ const AppRoutes = () => {
     { path: '/marketplace', element: <Marketplace/> },
     { path: '/my-collection', element: <MyCollection/> },
     { path: '/my-account', element: <MyAccount/> },
-    { path: '/my-order', element: <MyOrder/> },
-    { path: '/my-orders', element: <MyOrders/> },
+    { path: '/cart', element: <Cart/> },
     { path: '/sign-in', element: <SignIn/> },
     { path: '/*', element: <NotFound/> },
   ]);
@@ -33,13 +31,13 @@ const AppRoutes = () => {
 function App() {
 
   return (
-    <CartProvider>
+    <ItemProvider>
       <BrowserRouter>
         <AppRoutes/>
         <Navbar/>
         <Sidebar/>
       </BrowserRouter>
-    </CartProvider>
+    </ItemProvider>
 
   )
 }
