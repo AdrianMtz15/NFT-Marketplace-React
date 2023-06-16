@@ -6,7 +6,15 @@ import { useState, useEffect } from "react";
 import banner from "../../assets/img/dashboard-banner.png";
 // import profilePhoto from "../../assets/img/prueba-perfil.png";
 
-const items = [
+const usersPhotos = [
+  "https://drive.google.com/uc?export=download&id=1kSYwUFFZf-I8A2nBdK2caihdxkMd2hjn",
+  "https://drive.google.com/uc?export=download&id=1wZzvXsMPlFz871Mm1ZhzSZJgnNYiuxhC",
+  "https://drive.google.com/uc?export=download&id=1Wo9fekCeppNJsKvX-nWK1kWKuEfYKAP5",
+  "https://drive.google.com/uc?export=download&id=1dqtZlJnJFe-OZBhQGrNhkLWoWZoKFpx7",
+  "https://drive.google.com/uc?export=download&id=162tW47YgJZaE6MOGBM_yLytzUDw5HChD"
+]
+
+const defaultItems = [
   {
     id: 1,
     title: "The Future wave #23",
@@ -14,8 +22,8 @@ const items = [
     currentBid: "0.24 BTC",
     imgSrc: "https://drive.google.com/uc?export=download&id=1taGz_RAL3M2GMVERsseUrU2YzYobDRIj",
     profile: {
-      email: "",
-      imgSrc: ""
+      username: "",
+      imgSrc: usersPhotos[2]
     }
   },
   {
@@ -25,8 +33,8 @@ const items = [
     currentBid: "0.24 BTC",
     imgSrc: "https://drive.google.com/uc?export=download&id=1CPCX9e5KhmrueKv7e8i3nmghfr_jB2GE",
     profile: {
-      email: "",
-      imgSrc: ""
+      username: "",
+      imgSrc: usersPhotos[0]
     }
   },
   {
@@ -36,21 +44,34 @@ const items = [
     currentBid: "0.24 BTC",
     imgSrc: "https://drive.google.com/uc?export=download&id=1dHewh9_BC1mH3-w6FK8yeoLYQuJMASiB",
     profile: {
-      email: "",
-      imgSrc: ""
+      username: "",
+      imgSrc: usersPhotos[4]
     }
   }
 ]
 
+
+
 function Dashboard() {
-  // const [users, setUsers] = useState([]);
+  const [items, setItems] = useState(defaultItems);
 
   useEffect(() => {
     const fetchData = async() => {
       try {
-        fetch('https://fakestoreapi.com/products/21')
-        .then(response => console.log(response))
-      } catch(err){
+        fetch('https://fakestoreapi.com/users?limit=5')
+        .then(response => response.json())
+        .then(data => {
+          let i = 0;
+          const newItems = [...items];
+          newItems.map((item) => {
+            item.profile.username = data[i].username
+            i++;
+          })
+
+          setItems(newItems);
+          console.log(newItems);
+        })
+      }catch(err){
         console.log(err);
       }
 
@@ -77,9 +98,9 @@ function Dashboard() {
         <img className="absolute bottom-0 right-[1.5vw] w-[25vw]" src={banner} alt="banner" />
       </div>
 
-    <div className="flex flex-row w-full h-max-h">
+    <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h">
       {
-        items?.map((item) => (
+        items.map((item) => (
           <Card key={item.id} data={item}/>
         ))
       }
