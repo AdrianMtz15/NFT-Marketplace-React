@@ -10,7 +10,7 @@ function Cart() {
     <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h">
       {
         itemsContext.items?.map((item) => (
-          item.isInCart ? <Card key={item.id} data={item}/> : null
+          item.isInCart ? <Card key={item.id} item={item}/> : null
         ))
       }
     </div>

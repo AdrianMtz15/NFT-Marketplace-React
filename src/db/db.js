@@ -11,11 +11,11 @@ async function getNft(db) {
 }
 
 async function getUser(db, id) {
-  const userRef = doc(db, 'users', id);
+  const userRef = await doc(db, 'users', id);
   const docSnap = await getDoc(userRef);
 
   if (docSnap.exists()) {
-      return docSnap.data();
+    return await docSnap.data();
   } else {
     // docSnap.data() will be undefined in this case
     throw Error('No se encontro el documento');

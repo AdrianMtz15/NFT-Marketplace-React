@@ -11,7 +11,8 @@ import banner from "../../assets/img/dashboard-banner.png";
 
 
 function Dashboard() {
-  const itemsContext = useContext(ItemContext);
+  const {
+    items  } = useContext(ItemContext);
   
   return (
     <section className="relative p-[2.5%] ml-[20vw] w-[50vw]">
@@ -53,10 +54,11 @@ function Dashboard() {
       {/* Cards de NFT's */}
       <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h">
         {
-          itemsContext.items?.map((item) => {
-            return(
-              item.isInCart ? null : <Card key={item.itemId} data={item}/>
-            )
+          items?.map((item) => {
+            console.log(item);
+              return(
+                item.isInCart ? null : <Card key={item.itemId} item={item}/>
+              )
           })
         }
       </div>
