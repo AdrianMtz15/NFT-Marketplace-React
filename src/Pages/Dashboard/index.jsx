@@ -53,9 +53,11 @@ function Dashboard() {
       {/* Cards de NFT's */}
       <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h">
         {
-          itemsContext.items?.map((item) => (
-            item.isInCart ? null : <Card key={item.id} data={item}/>
-          ))
+          itemsContext.items?.map((item) => {
+            return(
+              item.isInCart ? null : <Card key={item.itemId} data={item}/>
+            )
+          })
         }
       </div>
 

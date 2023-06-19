@@ -1,4 +1,6 @@
-import {collection, getDocs } from 'firebase/firestore/lite';
+import {collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
+
+
 
 
 async function getNft(db) {
@@ -8,14 +10,20 @@ async function getNft(db) {
   return nftList;
 }
 
-async function getUsers(db) {
-  const usersCol = await collection(db, 'users');
-  const usersSnapshot = await getDocs(usersCol);
-  const usersList = await usersSnapshot.docs.map(doc => doc.data());
-  return usersList;
+async function getUser(db, id) {
+  const userRef = doc(db, 'users', id);
+  const docSnap = await getDoc(userRef);
+
+  if (docSnap.exists()) {
+      return docSnap.data();
+  } else {
+    // docSnap.data() will be undefined in this case
+    throw Error('No se encontro el documento');
+  }
 }
+
 
 export {
   getNft,
-  getUsers
+  getUser
 }
