@@ -4,7 +4,7 @@ import { PlusIcon } from '@heroicons/react/24/solid';
 
 function Balance() {
   return(
-    <div className="relative w-[24vw] bg-white min-h-[30vh] h-[max-content] rounded-[12px] mt-[4.2vh] p-[7%]">
+    <div className="relative w-[85%] bg-white h-[max-content] rounded-[12px] mt-[4.2vh] p-[7%] shadow">
       <p className="font-sans text-[1.6rem] font-medium text-[#1B1A1E] cursor-default">Your Balance</p>
       <h2 className="font-bold text-[3.5rem] text-[#1B1A1E] cursor-default">$350,000.20</h2>
 
@@ -14,7 +14,7 @@ function Balance() {
         <p className="font-sans text-[1.4rem] font-medium text-[#73C255]">(59.11%)</p>
       </section>
 
-      <section className="flex flex-row items-center justify-start cursor-pointer mt-[10%]">
+      <section className="flex flex-row items-center justify-start cursor-pointer mt-[10%] w-[max-content]">
         <p className="font-sans text-[1.4rem] font-medium text-[#C4C4C4]">sdfgcghjhkb21687udwhjknscnkjkj....</p>
         <ClipboardDocumentListIcon fill='#0997FF' className="w-[2rem] h-[2.4rem]"/>
       </section>

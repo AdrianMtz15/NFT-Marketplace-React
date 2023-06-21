@@ -11,8 +11,7 @@ import banner from "../../assets/img/dashboard-banner.png";
 
 
 function Dashboard() {
-  const {
-    items  } = useContext(ItemContext);
+  const { items } = useContext(ItemContext);
   
   return (
     <section className="relative p-[2.5%] ml-[20vw] w-[50vw]">
@@ -59,7 +58,6 @@ function Dashboard() {
       <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h">
         {
           items?.map((item) => {
-            console.log(item);
               return(
                 item.isInCart ? null : <Card key={item.itemId} item={item}/>
               )

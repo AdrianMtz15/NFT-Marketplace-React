@@ -10,7 +10,7 @@ function Card({
 }) {
   const itemsContext = useContext(ItemContext);
   return(
-    <section className={`p-[10px] relative flex flex-col items-center justify-center w-[100%] mt-[70px] bg-[#F6FAFF] rounded-[12px]`}>
+    <section className={`shadow p-[10px] relative flex flex-col items-center justify-center w-[100%] mt-[70px] bg-[#F6FAFF] rounded-[12px]`}>
       <img className=' w-full m-0' src={item.img} alt="nft-image" />
 
       <div 

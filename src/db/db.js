@@ -10,6 +10,18 @@ async function getNft(db) {
   return nftList;
 }
 
+async function getUsers(db) {
+  const usersCol = collection(db, 'users');
+  const usersSnapshot = await getDocs(usersCol);
+  const usersList = usersSnapshot.docs.map(doc => {
+    const obj = doc.data();
+    obj.id = doc.id;
+    
+    return obj;
+  });
+  return usersList;
+}
+
 async function getUser(db, id) {
   const userRef = await doc(db, 'users', id);
   const docSnap = await getDoc(userRef);
@@ -25,5 +37,6 @@ async function getUser(db, id) {
 
 export {
   getNft,
+  getUsers,
   getUser
 }

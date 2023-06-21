@@ -1,13 +1,14 @@
 import { ProfileBar } from "../ProfileBar";
 import { Balance } from "../Balance";
+import { TopSellers } from "../TopSellers";
 
 function Sidebar() {
     return(
-        <aside className="fixed top-0 right-0 w-[30vw] h-[max-content] min-h-[100vh] bg-[#F6FAFF] flex flex-col justify-start items-center">
+        <div className="overflow-auto fixed top-[10vh] right-0 h-[90vh] w-[30vw] bg-[#F6FAFF] flex flex-col justify-start items-center pb-[30px]">
             <ProfileBar/>
-            <Balance className=""/>
-            <div></div>
-        </aside>
+            <Balance/>
+            <TopSellers/>
+        </div>
     )
 }
 
