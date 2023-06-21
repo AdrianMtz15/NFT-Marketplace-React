@@ -25,9 +25,13 @@ function Dashboard() {
           <h1 className="font-bold text-[2.7rem] text-white leading-[3rem] w-[50%]">Discover, Collect & Create your own NFT</h1>
           <p className="text-white mt-[2vh] text-[1.2rem]">Search items, collection, accounts</p>
 
-          <div className=" mt-[2vh]">
-            <Button text='Discover Now' bgColor='white' textColor='[#0997FF]'/>
-            <Button borderColor='white' text='Create your NFT' bgColor='[transparent]' textColor='white'/>
+          <div className="flex flex-row mt-[2vh]">
+            <section className="w-[25%] mr-[15px]">
+              <Button text='Discover Now' bgColor='white' textColor='[#0997FF]'/>
+            </section>
+            <section className="w-[25%]">
+              <Button borderColor='white' text='Create your NFT' bgColor='[transparent]' textColor='white'/>
+            </section>
           </div>
         </div>
         <img className="absolute bottom-0 right-[1.5vw] w-[25vw]" src={banner} alt="banner" />

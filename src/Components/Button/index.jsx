@@ -7,7 +7,7 @@ function Button({
   text
 }) {
   return(
-    <button type='button' className={`outline-none cursor-pointer font-medium text-${textColor} bg-${bgColor} border border-solid border-${borderColor} rounded-[4px] text-[1.4rem] h-[6vh] px-[20px] mr-[7px]`}>{text}</button>
+    <button type='button' className={` w-[100%] outline-none cursor-pointer font-medium text-${textColor} bg-${bgColor} border border-solid border-${borderColor} rounded-[4px] text-[1.4rem] h-[6vh] px-[10px] mr-[7px]`}>{text}</button>
   )
 }
 
