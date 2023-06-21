@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { ItemContext } from "../../Context";
 
+import { PlusIcon } from '@heroicons/react/24/solid';
 
 function Card({
   item
@@ -21,7 +22,8 @@ function Card({
           itemsContext.setItems(newItems);
         }}
         className='absolute text-[2rem] cursor-pointer top-[5%] right-[5%] flex justify-center items-center bg-white w-[30px] h-[30px] rounded-full m-2 p-1'>
-          +
+          <PlusIcon fill='black' className="w-6 h-6"/>
+          
       </div>
 
       <div className='w-full flex flex-row justify-between items-start mt-[10px]'>
