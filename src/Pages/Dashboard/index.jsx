@@ -1,5 +1,6 @@
 import { useContext } from "react";
 
+import { MainLayout } from "../../Components/MainLayout";
 import { Browser } from "../../Components/Browser";
 import { Button } from "../../Components/Button";
 import { Card } from "../../Components/Card";
@@ -14,7 +15,7 @@ function Dashboard() {
   const { items } = useContext(ItemContext);
   
   return (
-    <section className="relative p-[2.5%] ml-[20vw] w-[50vw]">
+    <MainLayout>
       {/* buscador */}
       <Browser/>
 
@@ -64,9 +65,7 @@ function Dashboard() {
           })
         }
       </div>
-
-
-    </section>
+    </MainLayout>
   )
 }
 
