@@ -3,15 +3,14 @@ import { getFirestore } from 'firebase/firestore/lite';
 
 // Configura tu objeto de configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyBTje3AXAC_aOCi6zc1XgL6fiSPVW_o_wI",
-  authDomain: "nft-marketplace-94b84.firebaseapp.com",
-  projectId: "nft-marketplace-94b84",
-  storageBucket: "nft-marketplace-94b84.appspot.com",
-  messagingSenderId: "875718597770",
-  appId: "1:875718597770:web:ce82e07ea9d58f6a4a2173",
-  measurementId: "G-3WE3E10LZY"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASSUREMENT_ID
 };
-
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
