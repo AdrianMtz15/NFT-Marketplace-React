@@ -22,7 +22,7 @@ function Navbar() {
 
     return(
         <>
-            <nav className="overflow-auto fixed top-0 w-[20vw] h-[100vh] pt-[30px] border-solid border border-[#D9D9D9]">
+            <nav className="shadow overflow-auto fixed top-0 w-[20vw] h-[100vh] pt-[30px] border-solid border border-[#D9D9D9]">
                 <ul className="ml-[20%]">
                     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
                         <NavLink to={'/'} className={({isActive}) => isActive ? navActive : undefined}>
