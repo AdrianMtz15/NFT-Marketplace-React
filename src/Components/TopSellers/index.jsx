@@ -17,8 +17,10 @@ function TopSellers() {
         {
           sellers?.map((seller) => {
             return(
-              <SellerLabel key={seller.id} sellerData={seller}/>
-            )
+              <li key={seller.id} className='mt-[20px] flex flex-row justify-between items-center'>
+                <SellerLabel sellerData={seller}/>
+              </li>
+            );
           })
         }
       </ul>

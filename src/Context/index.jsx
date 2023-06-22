@@ -10,6 +10,16 @@ const ItemContext = createContext();
 function ItemProvider({children}) {
   const [items, setItems] = useState([]);
   const [sellers, setSellers] = useState([]);
+  const [isNftOpen, setNftOpen] = useState(false);
+  const [nftActive, setNftActive] = useState({});
+
+  const openNftModal = () => {
+    setNftOpen(true);
+  }
+
+  const closeNftModal = () => {
+    setNftOpen(false);
+  }
 
   useEffect(() => {
     const fetchData = async() => {
@@ -50,7 +60,13 @@ function ItemProvider({children}) {
       items,
       setItems,
       sellers,
-      setSellers
+      setSellers,
+      isNftOpen,
+      setNftOpen,
+      openNftModal,
+      closeNftModal,
+      nftActive,
+      setNftActive
     }}>
       {children}
     </ItemContext.Provider>

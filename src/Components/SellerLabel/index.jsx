@@ -6,7 +6,7 @@ function SellerLabel({
   sellerData
 }) {
   return(
-    <li className='mt-[20px] flex flex-row justify-between items-center'>
+    <>
       <section className='flex flex-row'>
         <img className='w-[50px] h-[50px] mr-2' src={sellerData.profileImg} />
 
@@ -19,7 +19,7 @@ function SellerLabel({
       <section className='w-[35%] rounded-[10px]'>
         <Button text='Follow' textColor='white' bgColor='[#0997FF]'/>
       </section>
-    </li>
+    </>
   );
 }
 

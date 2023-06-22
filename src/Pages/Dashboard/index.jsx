@@ -4,6 +4,7 @@ import { MainLayout } from "../../Components/MainLayout";
 import { Browser } from "../../Components/Browser";
 import { Button } from "../../Components/Button";
 import { Card } from "../../Components/Card";
+import { Modal } from "../../Components/Modal";
 
 import { ItemContext } from "../../Context";
 
@@ -12,7 +13,11 @@ import banner from "../../assets/img/dashboard-banner.png";
 
 
 function Dashboard() {
-  const { items } = useContext(ItemContext);
+  const { 
+    items,
+    isNftOpen,
+    closeNftModal,
+   } = useContext(ItemContext);
   
   return (
     <MainLayout>
@@ -39,7 +44,7 @@ function Dashboard() {
 
 
       {/* Categorias de NFT's */}
-      <div>
+      {/* <div>
         <section>
           <article>
             <h2>ALL NFTS</h2>
@@ -51,12 +56,20 @@ function Dashboard() {
         <section>
           
         </section>
-      </div>
+      </div> */}
 
+
+
+      {/* Nfts Modal */}
+      <section id="nft-modal" className={`flex items-center justify-center top-0 left-0 bg-[#F6FAFF]/80 w-full h-full z-20 ${isNftOpen ? 'absolute': 'hidden'}`}>
+        <Modal isOpen={isNftOpen} closeModal={closeNftModal}>
+        </Modal>
+      </section>
+ 
     
 
       {/* Cards de NFT's */}
-      <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h">
+      <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[70px]">
         {
           items?.map((item) => {
               return(

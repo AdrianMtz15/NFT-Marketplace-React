@@ -9,19 +9,34 @@ function Card({
   item
 }) {
   const itemsContext = useContext(ItemContext);
+
+
   return(
-    <section className={`shadow p-[10px] relative flex flex-col items-center justify-center w-[100%] mt-[70px] bg-[#F6FAFF] rounded-[12px]`}>
+    <section 
+      onClick={() => {
+        itemsContext.openNftModal();
+        itemsContext.setNftActive(item)
+      }}
+
+      className={`cursor-pointer shadow p-[10px] relative flex flex-col items-center justify-center w-[100%] bg-[#F6FAFF] rounded-[12px]`}
+    >
+
       <img className=' w-full m-0' src={item.img} alt="nft-image" />
 
       <div 
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
+
           const newItems = [...itemsContext.items];
           newItems.map(obj => {
             obj.itemId == item.itemId ? item.isInCart = true : null;
           });
+
           itemsContext.setItems(newItems);
         }}
-        className='absolute text-[2rem] cursor-pointer top-[5%] right-[5%] flex justify-center items-center bg-white w-[30px] h-[30px] rounded-full m-2 p-1'>
+
+        className='absolute text-[2rem] cursor-pointer top-[5%] right-[5%] flex justify-center items-center bg-white w-[30px] h-[30px] rounded-full m-2 p-1'
+      >
           <PlusIcon fill='black' className="w-6 h-6"/>
           
       </div>

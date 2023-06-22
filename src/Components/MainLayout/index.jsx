@@ -5,7 +5,7 @@ function MainLayout({
   children
 }) {
   return(
-    <main className="relative p-[2.5%] ml-[20vw] w-[50vw]">
+    <main className="relative p-[2.5%] ml-[20vw] w-[50vw] h-[100vh]">
       {
         children
       }
