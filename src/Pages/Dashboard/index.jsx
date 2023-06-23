@@ -25,9 +25,9 @@ function Dashboard() {
       <Browser/>
 
       {/* Banner */}
-      <div className="mt-[3.1vh] relative flex flex-row bg-[url('../../assets/img/banner-mask.png')] min-h-[max-content] py-[2.4vh] px-[2.6vw] w-[100%] h-[29vh] bg-[#0997FF] opacity-90 rounded-[12px]">
+      <div className="mt-[3.1vh] relative flex flex-row bg-[url('../../assets/img/banner-mask.png')]  py-[2.5rem] px-[3rem] w-[100%] h-[max-content] bg-[#0997FF] opacity-90 rounded-[12px]">
         <div className="z-10 w-[100%] cursor-default">
-          <h1 className="font-bold text-[2.7rem] text-white leading-[3rem] w-[50%]">Discover, Collect & Create your own NFT</h1>
+          <h1 className="font-bold text-[2.5em] text-white leading-[3rem] h-[50%] w-[50%]">Discover, Collect & Create your own NFT</h1>
           <p className="text-white mt-[2vh] text-[1.2rem]">Search items, collection, accounts</p>
 
           <div className="flex flex-row mt-[2vh]">
@@ -39,7 +39,8 @@ function Dashboard() {
             </section>
           </div>
         </div>
-        <img className="absolute bottom-0 right-[1.5vw] w-[25vw]" src={banner} alt="banner" />
+
+        <img className="absolute bottom-0 right-[1.5vw] h-[120%]" src={banner} alt="banner" />
       </div>
 
 
