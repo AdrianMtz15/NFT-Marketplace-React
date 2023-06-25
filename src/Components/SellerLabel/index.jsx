@@ -1,10 +1,36 @@
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { ItemContext } from '../../Context';
 
 import { Button } from '../Button';
+
+import PropTypes from 'prop-types';
+
 
 function SellerLabel({
   sellerData
 }) {
+
+  const { 
+    sellers,
+    setSellers
+   } = useContext(ItemContext);
+
+  const toggleFollow = () => {
+    const updatedSellers = [...sellers]
+    const seller = sellers.find(obj => {
+      return obj.id == sellerData.id;
+    })
+
+    seller.follow = !seller.follow;
+
+    setSellers(updatedSellers);
+  }
+
+  const textBtn = sellerData.follow ? 'Following' : 'Follow'
+  const textColorBtn = sellerData.follow ? '[#0997FF]' : 'white'
+  const bgColorBtn = sellerData.follow ? 'white' : '[#0997FF]'
+  const borderBtn = sellerData.follow ? '[#0997FF]' : 'null'
+
   return(
     <>
       <section className='flex flex-row'>
@@ -16,8 +42,13 @@ function SellerLabel({
         </div>
       </section>
       
-      <section className='w-[35%] rounded-[10px]'>
-        <Button text='Follow' textColor='white' bgColor='[#0997FF]'/>
+      <section onClick={toggleFollow} className='w-[35%] rounded-[10px] border-none'>
+        <Button 
+          text={textBtn} 
+          textColor={textColorBtn} 
+          bgColor={bgColorBtn} 
+          borderColor={borderBtn}
+        />
       </section>
     </>
   );

@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
 import { db } from "../db/firebase";
-import { getUser, getNft, getUsers } from "../db/db";
+import { getNft, getUsers } from "../db/db";
 
 
 const ItemContext = createContext();
@@ -25,24 +25,31 @@ function ItemProvider({children}) {
     const fetchData = async() => {
       try {
         const nfts = await getNft(db);
-        const users = await getUsers(db);
+        const sellers = await getUsers(db);
 
-        const nftsData = await nfts.map(async (item, index) => {
+        const defaultSellers = await sellers.map(user => {
+          return {
+            ...user,
+            follow: false
+          }
+        })
+
+        const nftsGetData = await nfts.map((item, index) => {
           const itemId = index;
           const isInCart = false;
-          const user = await getUser(db, item.user.id);
+          const user = defaultSellers.find((element) => {
+            return element.id == item.user.id;
+          });
 
           return {
             ...item,
             itemId,
             isInCart,
-            user 
+            user
           }
-
         });
-        
-        const defaultItems = await Promise.all(nftsData);
-        const defaultSellers = await users;
+
+        const defaultItems = nftsGetData;
 
         setItems(defaultItems);
         setSellers(defaultSellers);

@@ -15,8 +15,10 @@ function Modal({
   closeModal
 }) {
   const {
-    nftActive
+    nftActive,
   } = useContext(ItemContext);
+
+
 
   if (!isOpen) {
     return null;
