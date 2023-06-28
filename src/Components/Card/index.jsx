@@ -1,19 +1,13 @@
 import PropTypes from 'prop-types';
 
-import { useContext } from "react";
-import { ItemContext } from "../../Context";
-
 function Card({
-  item
+  item,
+  onClick
 }) {
-  const itemsContext = useContext(ItemContext);
 
   return(
     <section 
-      onClick={() => {
-        itemsContext.openNftModal();
-        itemsContext.setNftActive(item)
-      }}
+      onClick={onClick}
       className={`cursor-pointer shadow p-[10px] relative flex flex-col 
       items-center justify-center w-[100%] bg-[#F6FAFF] rounded-[12px]`}
     >
@@ -43,6 +37,7 @@ function Card({
 
 Card.propTypes = {
   item: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
 };
 
 export {

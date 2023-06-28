@@ -17,6 +17,8 @@ function Dashboard() {
     items,
     isNftOpen,
     closeNftModal,
+    openNftModal,
+    setNftActive
    } = useContext(ItemContext);
   
   return (
@@ -88,7 +90,14 @@ function Dashboard() {
         {
           items?.map((item) => {
               return(
-                <Card key={item.id} item={item}/>
+                <Card 
+                  key={item.id} 
+                  item={item} 
+                  onClick={() => {
+                    openNftModal();
+                    setNftActive(item);
+                  }}
+                />
               )
           })
         }
