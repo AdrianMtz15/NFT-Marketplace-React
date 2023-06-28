@@ -15,6 +15,7 @@ function SellerLabel({
     setSellers
    } = useContext(ItemContext);
 
+  //  Function - Used for set follow and unfollow seller properties
   const toggleFollow = () => {
     const updatedSellers = [...sellers]
     const seller = sellers.find(obj => {
@@ -22,10 +23,10 @@ function SellerLabel({
     })
 
     seller.follow = !seller.follow;
-
     setSellers(updatedSellers);
   }
 
+  
   const textBtn = sellerData.follow ? 'Following' : 'Follow'
   const textColorBtn = sellerData.follow ? '[#0997FF]' : 'white'
   const bgColorBtn = sellerData.follow ? 'white' : '[#0997FF]'
@@ -37,7 +38,10 @@ function SellerLabel({
         <img className='w-[50px] h-[50px] mr-2' src={sellerData.profileImg} />
 
         <div className='flex flex-col items-start justify-center leading-snug'>
-          <h2 className="font-sans text-[1.8rem] font-bold text-black">{`${sellerData.name.firstName} ${sellerData.name.lastName}`}</h2>
+          <h2 className="font-sans text-[1.8rem] font-bold text-black">
+            {`${sellerData.name.firstName} ${sellerData.name.lastName}`}
+          </h2>
+          
           <p className="font-sans text-[1.4rem] text-[#9B9DA0]">@{sellerData.username}</p>
         </div>
       </section>

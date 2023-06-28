@@ -4,7 +4,7 @@ import { MainLayout } from "../../Components/MainLayout";
 import { Browser } from "../../Components/Browser";
 import { Button } from "../../Components/Button";
 import { Card } from "../../Components/Card";
-import { Modal } from "../../Components/Modal";
+import { ModalCard } from "../../Components/ModalCard";
 
 import { ItemContext } from "../../Context";
 
@@ -25,9 +25,18 @@ function Dashboard() {
       <Browser/>
 
       {/* Banner */}
-      <div className="mt-[3.1vh] relative flex flex-row bg-[url('../../assets/img/banner-mask.png')]  py-[2.5rem] px-[3rem] w-[100%] h-[max-content] bg-[#0997FF] opacity-90 rounded-[12px]">
+      <div className="mt-[3.1vh] relative flex flex-row 
+        bg-[url('../../assets/img/banner-mask.png')]  py-[2.5rem] 
+        px-[3rem] w-[100%] h-[max-content] bg-[#0997FF] opacity-90 
+        rounded-[12px]">
+
         <div className="z-10 w-[100%] cursor-default">
-          <h1 className="font-bold text-[2.5em] text-white leading-[3rem] h-[50%] w-[50%]">Discover, Collect & Create your own NFT</h1>
+          <h1 
+            className="font-bold text-[2.5em] text-white 
+            leading-[3rem] h-[50%] w-[50%]">
+              Discover, Collect & Create your own NFT
+          </h1>
+
           <p className="text-white mt-[2vh] text-[1.2rem]">Search items, collection, accounts</p>
 
           <div className="flex flex-row mt-[2vh]">
@@ -62,9 +71,14 @@ function Dashboard() {
 
 
       {/* Nfts Modal */}
-      <section id="nft-modal" className={`flex items-center justify-center top-0 left-0 bg-[#F6FAFF]/80 w-full h-full z-20 ${isNftOpen ? 'absolute': 'hidden'}`}>
-        <Modal isOpen={isNftOpen} closeModal={closeNftModal}>
-        </Modal>
+      <section 
+        id="nft-modal" 
+        className={`flex items-center justify-center top-0 left-0 
+        bg-[#F6FAFF]/80 w-full h-full z-20 ${isNftOpen ? 'absolute': 'hidden'}`}>
+          
+        <ModalCard 
+          isOpen={isNftOpen} 
+          closeModal={closeNftModal}/>
       </section>
  
     
@@ -74,7 +88,7 @@ function Dashboard() {
         {
           items?.map((item) => {
               return(
-                item.isInCart ? null : <Card key={item.itemId} item={item}/>
+                item.isInCart ? null : <Card key={item.id} item={item}/>
               )
           })
         }

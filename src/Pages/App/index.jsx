@@ -20,7 +20,7 @@ const AppRoutes = () => {
     { path: '/marketplace', element: <Marketplace/> },
     { path: '/my-collection', element: <MyCollection/> },
     { path: '/my-account', element: <MyAccount/> },
-    { path: '/cart', element: <Cart/> },
+    { path: '/wallet', element: <Cart/> },
     { path: '/sign-in', element: <SignIn/> },
     { path: '/*', element: <NotFound/> },
   ]);

@@ -3,7 +3,12 @@ import {collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 async function getNft(db) {
   const nftCol = collection(db, 'nfts');
   const nftSnapshot = await getDocs(nftCol);
-  const nftList = nftSnapshot.docs.map(doc => doc.data());
+  const nftList = nftSnapshot.docs.map(doc => {
+    const obj = doc.data();
+    obj.id = doc.id;
+    
+    return obj;
+  })
   return nftList;
 }
 

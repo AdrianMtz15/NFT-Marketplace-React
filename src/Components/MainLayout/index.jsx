@@ -6,9 +6,7 @@ function MainLayout({
 }) {
   return(
     <main className="relative p-[2.5%] ml-[20vw] w-[50vw] h-[100vh]">
-      {
-        children
-      }
+      {children}
     </main>
   )
 }

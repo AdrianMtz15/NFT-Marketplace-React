@@ -1,6 +1,5 @@
 
 import { MainLayout } from "../../Components/MainLayout"
-
 import profileImg from '../../assets/img/profile-img.png'
 
 function MyAccount() {
