@@ -88,7 +88,7 @@ function Dashboard() {
         {
           items?.map((item) => {
               return(
-                item.isInCart ? null : <Card key={item.id} item={item}/>
+                <Card key={item.id} item={item}/>
               )
           })
         }

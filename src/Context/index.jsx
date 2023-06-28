@@ -47,7 +47,6 @@ function ItemProvider({children}) {
 
         // Objects Array - setting properties on nfts 
         const defaultNfts = await nfts.map((item) => {
-          const isInCart = false;
           // Searching seller data
           const user = defaultSellers.find((element) => {
             return element.id == item.user.id;
@@ -55,7 +54,6 @@ function ItemProvider({children}) {
 
           return {
             ...item,
-            isInCart,
             user
           }
         });
