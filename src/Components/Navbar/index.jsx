@@ -1,7 +1,3 @@
-import { cloneElement } from "react";
-import { useLocation } from "react-router-dom";
-
-
 import { NavItem } from "../NavItem";
 
 import './index.css';
@@ -15,11 +11,6 @@ import { ReactComponent as WalletIcon } from '../../assets/ico/wallet.svg';
 
 
 function Navbar() {
-    const location = useLocation();
-
-    const navLinkActive = (path) => {
-      return location.pathname === path;
-    };
 
     const navLinks = [
       {
@@ -57,14 +48,11 @@ function Navbar() {
 
         <ul className="ml-[20%] mb-60">
           {navLinks.map((item) => {
-              const icon = cloneElement(item.icon, {
-                fill: navLinkActive(item.url) ? '#0997FF' : '#4D4A4A'
-              })
-              
               return(
-                <NavItem key={item.url} navTitle={item.title} navUrl={item.url}>
-                  {icon}
-                </NavItem>
+                <NavItem 
+                  key={item.url} 
+                  item={item} 
+                />
               )
             })}
         </ul>

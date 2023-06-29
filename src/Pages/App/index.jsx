@@ -5,6 +5,7 @@ import { ItemProvider } from '../../Context';
 import { Navbar } from '../../Components/Navbar';
 import { Dashboard } from '../Dashboard';
 import { Marketplace } from '../Marketplace';
+import { Checkout } from '../Checkout';
 import { MyCollection } from '../MyCollection';
 import { MyAccount } from '../MyAccount';
 import { Cart } from '../Cart';
@@ -18,6 +19,7 @@ const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <Dashboard/> },
     { path: '/marketplace', element: <Marketplace/> },
+    { path: '/marketplace/checkout/:id', element: <Checkout/> },
     { path: '/my-collection', element: <MyCollection/> },
     { path: '/my-account', element: <MyAccount/> },
     { path: '/wallet', element: <Cart/> },

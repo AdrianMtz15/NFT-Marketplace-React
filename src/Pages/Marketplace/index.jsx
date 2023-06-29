@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { ItemContext } from '../../Context';
 
 import { MainLayout } from '../../Components/MainLayout';
@@ -18,7 +19,9 @@ function Marketplace() {
           {
             items?.map((item) => {
                 return(
-                  item.isInCart ? null : <Card key={item.id} item={item}/>
+                  <Link key={item.id} to={'/marketplace/checkout/' + item.id} >
+                    <Card item={item}/>
+                  </Link>
                 )
             })
           }
