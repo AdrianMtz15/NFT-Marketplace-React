@@ -5,12 +5,8 @@ import { Browser } from "../../Components/Browser";
 import { Button } from "../../Components/Button";
 import { Card } from "../../Components/Card";
 import { ModalCard } from "../../Components/ModalCard";
-
 import { ItemContext } from "../../Context";
-
 import banner from "../../assets/img/dashboard-banner.png";
-// import profilePhoto from "../../assets/img/prueba-perfil.png";
-
 
 function Dashboard() {
   const { 
@@ -24,44 +20,11 @@ function Dashboard() {
    } = useContext(ItemContext);
 
   const renderItems = () => {
-    if(searchInput) {
-      if(filterItems.length > 0) {
-        return(
-          filterItems?.map((item) => {
-            return(
-              <Card 
-                key={item.id} 
-                item={item} 
-                onClick={() => {
-                  openNftModal();
-                  setNftActive(item);
-                }}
-              />
-            )
-        })
-        )
+      if(filterItems.length > 0 && searchInput.length >0){
+        return filterItems
       } else {
-        return(
-          <div>Not Found</div>
-        )
-      }
-
-    } else {
-      return(
-        items?.map((item) => {
-            return(
-              <Card 
-                key={item.id} 
-                item={item} 
-                onClick={() => {
-                  openNftModal();
-                  setNftActive(item);
-                }}
-              />
-            )
-        })
-      )
-    }
+        return items
+      }  
   }
   
   return (
@@ -136,20 +99,16 @@ function Dashboard() {
       {/* Cards de NFT's */}
       <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[70px]">
         {
-          // items?.map((item) => {
-          //     return(
-          //       <Card 
-          //         key={item.id} 
-          //         item={item} 
-          //         onClick={() => {
-          //           openNftModal();
-          //           setNftActive(item);
-          //         }}
-          //       />
-          //     )
-          // })
-
-          renderItems()
+          renderItems().map(item => (
+            <Card 
+              key={item.id} 
+              item={item} 
+              onClick={() => {
+                openNftModal();
+                setNftActive(item);
+              }}
+            />
+          ))
         }
       </div>
     </MainLayout>
