@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { ItemContext } from "../../Context";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 
-import { Browser } from '../../Components/Browser';
 import { Button } from "../../Components/Button";
 import { CheckoutItem } from "../../Components/CheckoutItem";
 import { MainLayout } from '../../Components/MainLayout';
 import { SellerLabel } from "../../Components/SellerLabel";
 
 function Checkout() {
-  const { items } = useContext(ItemContext);
+  const { items, setSearchInput} = useContext(ItemContext);
   const currentPath = window.location.pathname;
   let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
           
@@ -22,14 +21,12 @@ function Checkout() {
   return(
     <MainLayout>
       <section className="flex flex-row items-center">
-        <Link to={'/marketplace'}>
+        <Link to={'/marketplace'} onClick={() => setSearchInput('')}>
           <ArrowLeftOnRectangleIcon 
             width={'30px'} 
             height={'30px'} 
             className="hover:cursor-pointer"/>
         </Link>
-
-        <Browser/>
       </section>
 
 

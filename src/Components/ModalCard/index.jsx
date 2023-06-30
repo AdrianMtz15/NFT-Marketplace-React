@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { ItemContext } from '../../Context';
 import PropTypes from 'prop-types';
@@ -75,8 +76,11 @@ function ModalCard({
         <SellerLabel sellerData={nftActive.user}/>
       </article>
 
-      <article className='w-full mt-5 shadow-md'>
-        <Button text='Purchase' textColor={'white'} bgColor={'[#0997FF]'}/>
+
+      <article className='w-full mt-5 shadow-md' onClick={closeModal}>
+        <Link to={'marketplace/checkout/' + nftActive.id}>
+          <Button text='Purchase' textColor={'white'} bgColor={'[#0997FF]'}/>
+        </Link>
       </article>
     </section>,
     document.getElementById('nft-modal')
