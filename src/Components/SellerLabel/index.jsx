@@ -33,8 +33,8 @@ function SellerLabel({
   const borderBtn = sellerData.follow ? '[#0997FF]' : 'null'
 
   return(
-    <>
-      <section className='flex flex-row'>
+    <div className='flex flex-row w-full items-center'>
+      <section className='flex flex-row w-[75%]' >
         <img className='w-[50px] h-[50px] mr-2' src={sellerData.profileImg} />
 
         <div className='flex flex-col items-start justify-center leading-snug'>
@@ -54,12 +54,12 @@ function SellerLabel({
           borderColor={borderBtn}
         />
       </section>
-    </>
+    </div>
   );
 }
 
 SellerLabel.propTypes = {
-  sellerData: PropTypes.object.isRequired,
+  sellerData: PropTypes.object,
 };
 
 export {
