@@ -17,6 +17,8 @@ function ItemProvider({children}) {
   const [sellers, setSellers] = useState([]);
   const [isNftOpen, setNftOpen] = useState(false);
   const [nftActive, setNftActive] = useState({});
+  const [searchInput, setSearchInput] = useState('');
+  const [filterItems, setFilterItems] = useState({});
 
   // Functions - Used for open and close ModalCard
   const openNftModal = () => {
@@ -33,8 +35,7 @@ function ItemProvider({children}) {
     // Async Funcion - Used for async functions 
     const fetchData = async() => {
       try {
-        // DB - getting nfts and sellers data from db
-        const nfts = await getNft(db);
+        // DB - getting sellers data from db
         const sellers = await getUsers(db);
 
         // Objects Array - Setting properties on sellers
@@ -44,6 +45,9 @@ function ItemProvider({children}) {
             follow: false
           }
         })
+
+        // DB - getting nfts data from db
+        const nfts = await getNft(db);
 
         // Objects Array - setting properties on nfts 
         const defaultNfts = await nfts.map((item) => {
@@ -69,6 +73,15 @@ function ItemProvider({children}) {
     fetchData();
   }, []);
 
+  const searchItems = () => {
+    return items?.filter(item => item.title.toLowerCase().includes(searchInput.toLowerCase()));
+  }
+
+    useEffect(() => {
+      if(searchInput) setFilterItems(searchItems());
+    },[items, searchInput]);
+
+
   
   return(
     <ItemContext.Provider value={{
@@ -81,7 +94,11 @@ function ItemProvider({children}) {
       openNftModal,
       closeNftModal,
       nftActive,
-      setNftActive
+      setNftActive,
+      searchInput,
+      setSearchInput,
+      filterItems,
+      setFilterItems
     }}>
       {children}
     </ItemContext.Provider>
