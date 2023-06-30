@@ -10,22 +10,14 @@ import banner from "../../assets/img/dashboard-banner.png";
 
 function Dashboard() {
   const { 
-    items,
+    renderItems,
     isNftOpen,
     closeNftModal,
     openNftModal,
     setNftActive,
-    searchInput,
-    filterItems
    } = useContext(ItemContext);
 
-  const renderItems = () => {
-      if(filterItems.length > 0 && searchInput.length >0){
-        return filterItems
-      } else {
-        return items
-      }  
-  }
+
   
   return (
     <MainLayout>
@@ -99,7 +91,7 @@ function Dashboard() {
       {/* Cards de NFT's */}
       <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[70px]">
         {
-          renderItems().map(item => (
+          renderItems()?.map(item => (
             <Card 
               key={item.id} 
               item={item} 

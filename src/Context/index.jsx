@@ -77,10 +77,18 @@ function ItemProvider({children}) {
     return items?.filter(item => item.title.toLowerCase().includes(searchInput.toLowerCase()));
   }
 
-    useEffect(() => {
-      if(searchInput) setFilterItems(searchItems());
-    },[items, searchInput]);
+  useEffect(() => {
+    if(searchInput) setFilterItems(searchItems());
+  },[items, searchInput]);
 
+
+  const renderItems = () => {
+    if(filterItems.length > 0 && searchInput.length >0){
+      return filterItems
+    } else {
+      return items
+    }  
+  }
 
   
   return(
@@ -98,7 +106,8 @@ function ItemProvider({children}) {
       searchInput,
       setSearchInput,
       filterItems,
-      setFilterItems
+      setFilterItems,
+      renderItems
     }}>
       {children}
     </ItemContext.Provider>
