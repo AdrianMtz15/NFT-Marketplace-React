@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { MainLayout } from "../../Components/MainLayout";
 import { Browser } from "../../Components/Browser";
 import { Button } from "../../Components/Button";
+import { CategoryBar } from "../../Components/CategoryBar";
 import { Card } from "../../Components/Card";
 import { ModalCard } from "../../Components/ModalCard";
 import { ItemContext } from "../../Context";
@@ -16,8 +17,6 @@ function Dashboard() {
     openNftModal,
     setNftActive,
    } = useContext(ItemContext);
-
-
   
   return (
     <MainLayout>
@@ -57,23 +56,24 @@ function Dashboard() {
           alt="banner" />
       </div>
 
-
       {/* Categorias de NFT's */}
-      {/* <div>
-        <section>
-          <article>
-            <h2>ALL NFTS</h2>
-            <p>2,345,678 items</p>
-          </article>
-          <p>See all</p>
-        </section>
+      <CategoryBar/>
 
-        <section>
-          
-        </section>
-      </div> */}
-
-
+      {/* Cards de NFT's */}
+      <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[30px]">
+        {
+          renderItems?.map(item => (
+            <Card 
+              key={item.id} 
+              item={item} 
+              onClick={() => {
+                openNftModal();
+                setNftActive(item);
+              }}
+            />
+          )) 
+        }
+      </div>
 
       {/* Nfts Modal */}
       <section 
@@ -85,24 +85,6 @@ function Dashboard() {
           isOpen={isNftOpen} 
           closeModal={closeNftModal}/>
       </section>
- 
-    
-
-      {/* Cards de NFT's */}
-      <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[70px]">
-        {
-          renderItems()?.map(item => (
-            <Card 
-              key={item.id} 
-              item={item} 
-              onClick={() => {
-                openNftModal();
-                setNftActive(item);
-              }}
-            />
-          ))
-        }
-      </div>
     </MainLayout>
   )
 }

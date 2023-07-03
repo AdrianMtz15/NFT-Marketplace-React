@@ -18,7 +18,8 @@ function ItemProvider({children}) {
   const [isNftOpen, setNftOpen] = useState(false);
   const [nftActive, setNftActive] = useState({});
   const [searchInput, setSearchInput] = useState('');
-  const [filterItems, setFilterItems] = useState({});
+  const [categoryFilter, setCategoryFilter] = useState('');
+  const [renderItems, setRenderItems] = useState([]);
 
   // Functions - Used for open and close ModalCard
   const openNftModal = () => {
@@ -29,16 +30,44 @@ function ItemProvider({children}) {
     setNftOpen(false);
   }
 
-  // Hook - useEffect used for get data from db and set it on States
+  const searchItems = (itemsArr) => {
+    if(searchInput.length > 0) {
+      const searchedItems = itemsArr?.filter(item => {
+        const itemTitle = item.title.toLowerCase();
+        const searchText = searchInput.toLowerCase();
+  
+        return itemTitle.includes(searchText);
+      });
+  
+      return searchedItems;
+    } else {
+      return itemsArr;
+    }
 
+  }
+
+  const filterByCategory = (itemsArr) => {
+    if(categoryFilter) {
+      const filteredItems = itemsArr?.filter(item => {
+        const itemCategory = item.category.toLowerCase();
+        const category = categoryFilter.toLowerCase();
+  
+        return itemCategory.includes(category);
+      });
+
+      return filteredItems;
+    } else {
+      return itemsArr;
+    }
+  }
+
+  // Hook - useEffect used for get data from db and set it on States
   useEffect(() => {
-    // Async Funcion - Used for async functions 
     const fetchData = async() => {
       try {
-        // DB - getting sellers data from db
         const sellers = await getUsers(db);
+        const nfts = await getNft(db);
 
-        // Objects Array - Setting properties on sellers
         const defaultSellers = await sellers.map(user => {
           return {
             ...user,
@@ -46,12 +75,7 @@ function ItemProvider({children}) {
           }
         })
 
-        // DB - getting nfts data from db
-        const nfts = await getNft(db);
-
-        // Objects Array - setting properties on nfts 
         const defaultNfts = await nfts.map((item) => {
-          // Searching seller data
           const user = defaultSellers.find((element) => {
             return element.id == item.user.id;
           });
@@ -71,26 +95,22 @@ function ItemProvider({children}) {
     }
     
     fetchData();
+
+    return () => {
+      setSearchInput('');
+    }
   }, []);
 
-  const searchItems = () => {
-    return items?.filter(item => item.title.toLowerCase().includes(searchInput.toLowerCase()));
-  }
-
   useEffect(() => {
-    if(searchInput) setFilterItems(searchItems());
-  },[items, searchInput]);
-
-
-  const renderItems = () => {
-    if(filterItems.length > 0 && searchInput.length >0){
-      return filterItems
-    } else {
-      return items
-    }  
-  }
-
+    if (items) { 
+      const searchedItems = searchItems(items);
+      const filteredItems = filterByCategory(searchedItems);
   
+      setRenderItems(filteredItems);
+    }
+
+  },[items, searchInput, categoryFilter]);
+
   return(
     <ItemContext.Provider value={{
       items,
@@ -105,8 +125,9 @@ function ItemProvider({children}) {
       setNftActive,
       searchInput,
       setSearchInput,
-      filterItems,
-      setFilterItems,
+      categoryFilter,
+      setCategoryFilter,
+      setRenderItems,
       renderItems
     }}>
       {children}
