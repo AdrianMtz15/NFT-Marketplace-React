@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { db } from "../db/firebase";
 import { getNft, getUsers } from "../db/db";
+import { useLocalStorage } from "../utils/LocalStorage";
 
 const ItemContext = createContext();
 
@@ -20,6 +21,8 @@ function ItemProvider({children}) {
   const [searchInput, setSearchInput] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [renderItems, setRenderItems] = useState([]);
+
+  const [signOut, setSignOut] = useLocalStorage('sign-out', true);
 
   // Functions - Used for open and close ModalCard
   const openNftModal = () => {
@@ -128,7 +131,9 @@ function ItemProvider({children}) {
       categoryFilter,
       setCategoryFilter,
       setRenderItems,
-      renderItems
+      renderItems,
+      signOut,
+      setSignOut
     }}>
       {children}
     </ItemContext.Provider>

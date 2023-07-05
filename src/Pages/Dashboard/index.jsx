@@ -17,7 +17,7 @@ function Dashboard() {
     openNftModal,
     setNftActive,
    } = useContext(ItemContext);
-  
+
   return (
     <MainLayout>
       {/* buscador */}

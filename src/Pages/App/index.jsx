@@ -1,6 +1,7 @@
+import { useContext } from 'react';
 import { useRoutes, BrowserRouter } from 'react-router-dom';
 
-import { ItemProvider } from '../../Context';
+import { ItemProvider, ItemContext } from '../../Context';
 
 import { Navbar } from '../../Components/Navbar';
 import { Dashboard } from '../Dashboard';
@@ -37,7 +38,7 @@ function App() {
       <BrowserRouter>
         <AppRoutes/>
         <Navbar/>
-        <Sidebar/>
+        {/* <Sidebar/> */}
       </BrowserRouter>
     </ItemProvider>
 

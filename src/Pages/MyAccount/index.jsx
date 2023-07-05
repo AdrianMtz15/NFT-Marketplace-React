@@ -1,8 +1,17 @@
+import { useContext } from "react";
+import { ItemContext } from "../../Context";
 
+import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 import { MainLayout } from "../../Components/MainLayout"
+import { Button } from '../../Components/Button';
 import profileImg from '../../assets/img/profile-img.png'
 
+
 function MyAccount() {
+  const {
+    setSignOut
+  } = useContext(ItemContext);
+
 
   return (
     <MainLayout>
@@ -16,6 +25,15 @@ function MyAccount() {
           <p></p>
         </article>
 
+      </section>
+
+      <section
+        onClick={() => {
+          setSignOut(true)
+        } }
+        className="text-[#d74b4b] relative w-[50%]">
+        <Button text={'SIGN-OUT'} bgColor={'[#45246f]'}/>
+        <ArrowLeftOnRectangleIcon className="absolute top-0 bottom-0 m-auto" width={'25px'}/>
       </section>
     </MainLayout>
   )

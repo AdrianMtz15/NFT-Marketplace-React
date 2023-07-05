@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ItemContext } from "../../Context";
 import { NavItem } from "../NavItem";
 
 import './index.css';
@@ -8,9 +10,14 @@ import { ReactComponent as CategoryIcon } from '../../assets/ico/category.svg';
 import { ReactComponent as FolderIcon } from '../../assets/ico/folder.svg';
 import { ReactComponent as SettingIcon } from '../../assets/ico/setting.svg';
 import { ReactComponent as WalletIcon } from '../../assets/ico/wallet.svg';
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid';
 
 
 function Navbar() {
+
+  const {
+    signOut
+  } = useContext(ItemContext)
 
     const navLinks = [
       {
@@ -21,7 +28,8 @@ function Navbar() {
       {
         title: "Marketplace",
         url: '/marketplace',
-        icon: <CategoryIcon/>
+        icon: <CategoryIcon/>,
+        defaultNav: true
       },
       {
         title: "My Collection",
@@ -38,7 +46,16 @@ function Navbar() {
         url: '/my-account',
         icon: <SettingIcon/>
       },
+      {
+        title: "Sign In",
+        url: '/sign-in',
+        icon: <ArrowRightOnRectangleIcon width={'24px'}/>
+      },
     ]
+
+    // const renderLinks = () => {
+    //   if
+    // }
 
     return(
       <nav 
@@ -47,14 +64,28 @@ function Navbar() {
       >
 
         <ul className="ml-[20%] mb-60">
-          {navLinks.map((item) => {
-              return(
-                <NavItem 
-                  key={item.url} 
-                  item={item} 
-                />
-              )
-            })}
+          {
+            signOut ?
+            navLinks.map((item) => {
+              if(item.defaultNav || item.url == '/sign-in')
+                return(
+                  <NavItem 
+                    key={item.url} 
+                    item={item} 
+                  />
+                )
+            }) :
+            navLinks.map((item) => {
+              if(item.url != '/sign-in') {
+                return(
+                  <NavItem 
+                    key={item.url} 
+                    item={item} 
+                  />
+                )
+              }
+            })
+          }
         </ul>
 
         <section 
