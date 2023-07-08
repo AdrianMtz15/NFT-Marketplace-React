@@ -122,10 +122,12 @@ function MyAccount() {
             />
           </label>
 
-          <Link 
-            to={'/'}
+          <section 
             className='w-full'
-            onClick={createAccount}
+            onClick={() => {
+              createAccount();
+              setEditActive(false);
+            }}
           >
             <button 
               className='bg-[#0997FF] text-white font-bold p-3 mt-5 w-full' 
@@ -133,7 +135,7 @@ function MyAccount() {
             >
                 Edit
             </button>
-          </Link>
+          </section>
 
         </form>
       </section>
