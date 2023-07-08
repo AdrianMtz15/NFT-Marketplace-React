@@ -14,11 +14,11 @@ function MainLayout({
   } = useContext(ItemContext);
 
   return(
-    <main className="relative p-[2.5%] ml-[20vw] w-[50vw] h-[100vh] overflow-auto">
+    <main 
+      className={`relative p-[2.5%] ml-[20vw] ${signOut ? 'w-[80vw]' : 'w-[50vw]'} 
+      h-[100vh] overflow-auto`}>
       {children}
-      {
-        signOut ? null : <Sidebar/>
-      }
+      {signOut ? null : <Sidebar/>}
     </main>
   )
 }

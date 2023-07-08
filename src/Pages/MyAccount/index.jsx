@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ItemContext } from "../../Context";
 
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
@@ -31,9 +32,21 @@ function MyAccount() {
         onClick={() => {
           setSignOut(true)
         } }
-        className="text-[#d74b4b] relative w-[50%]">
-        <Button text={'SIGN-OUT'} bgColor={'[#45246f]'}/>
-        <ArrowLeftOnRectangleIcon className="absolute top-0 bottom-0 m-auto" width={'25px'}/>
+        className="text-[#d74b4b] relative w-[50%]"
+      >
+        <Link to={'/sign-in'}>
+          <Button 
+            text={'SIGN-OUT'} 
+            bgColor={'[#45246f]'}
+          />
+        </Link>
+
+
+        <ArrowLeftOnRectangleIcon 
+          className="absolute top-0 bottom-0 m-auto" 
+          width={'25px'}
+        />
+
       </section>
     </MainLayout>
   )

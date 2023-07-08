@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef} from "react";
+import { Navigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 import { db } from "../db/firebase";
@@ -23,6 +24,22 @@ function ItemProvider({children}) {
   const [renderItems, setRenderItems] = useState([]);
 
   const [signOut, setSignOut] = useLocalStorage('sign-out', true);
+  const [user, setUser] = useLocalStorage('user', {});
+
+  const form = useRef(null);
+
+  const createAccount = () => {
+    const formData = new FormData(form.current);
+    const data = {
+      "name": formData.get('name'),
+      "email": formData.get('email'),
+      "password": formData.get('password'),
+    }
+
+    setUser(data);
+    setSignOut(false);
+    return <Navigate replace to={'/'}/>
+  }
 
   // Functions - Used for open and close ModalCard
   const openNftModal = () => {
@@ -133,7 +150,11 @@ function ItemProvider({children}) {
       setRenderItems,
       renderItems,
       signOut,
-      setSignOut
+      setSignOut,
+      user,
+      setUser,
+      form,
+      createAccount
     }}>
       {children}
     </ItemContext.Provider>

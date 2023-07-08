@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import { useRoutes, BrowserRouter } from 'react-router-dom';
-
+import { useRoutes, BrowserRouter, Navigate } from 'react-router-dom';
 import { ItemProvider, ItemContext } from '../../Context';
 
 import { Navbar } from '../../Components/Navbar';
@@ -12,19 +11,25 @@ import { MyAccount } from '../MyAccount';
 import { Cart } from '../Cart';
 import { NotFound } from '../NotFound';
 import { SignIn } from '../SignIn';
-import { Sidebar } from '../../Components/Sidebar';
+import { SignUp } from '../SignUp';
 
 import './App.css';
 
+
+
 const AppRoutes = () => {
+  const context = useContext(ItemContext);
+  const signOut = context.signOut;
+
   let routes = useRoutes([
-    { path: '/', element: <Dashboard/> },
+    { path: '/', element: signOut ? <Navigate replace to={'/sign-in'}/> : <Dashboard/> },
     { path: '/marketplace', element: <Marketplace/> },
     { path: '/marketplace/checkout/:id', element: <Checkout/> },
-    { path: '/my-collection', element: <MyCollection/> },
-    { path: '/my-account', element: <MyAccount/> },
-    { path: '/wallet', element: <Cart/> },
+    { path: '/my-collection', element: signOut ? <Navigate replace to={'/sign-in'}/> : <MyCollection/> },
+    { path: '/my-account', element: signOut ? <Navigate replace to={'/sign-in'}/> : <MyAccount/> },
+    { path: '/wallet', element: signOut ? <Navigate replace to={'/sign-in'}/> : <Cart/> },
     { path: '/sign-in', element: <SignIn/> },
+    { path: '/sign-up', element: <SignUp/> },
     { path: '/*', element: <NotFound/> },
   ]);
 
@@ -38,7 +43,6 @@ function App() {
       <BrowserRouter>
         <AppRoutes/>
         <Navbar/>
-        {/* <Sidebar/> */}
       </BrowserRouter>
     </ItemProvider>
 
