@@ -1,9 +1,10 @@
 import {collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
+import { db } from './firebase';
 
-async function getNft(db) {
+async function getNfts() {
   const nftCol = collection(db, 'nfts');
   const nftSnapshot = await getDocs(nftCol);
-  const nftList = nftSnapshot.docs.map(doc => {
+  const nftList = await nftSnapshot.docs.map(doc => {
     const obj = doc.data();
     obj.id = doc.id;
     
@@ -12,7 +13,7 @@ async function getNft(db) {
   return nftList;
 }
 
-async function getUsers(db) {
+async function getUsers() {
   const usersCol = collection(db, 'users');
   const usersSnapshot = await getDocs(usersCol);
   const usersList = usersSnapshot.docs.map(doc => {
@@ -24,7 +25,7 @@ async function getUsers(db) {
   return usersList;
 }
 
-async function getUser(db, id) {
+async function getUser(id) {
   const userRef = await doc(db, 'users', id);
   const docSnap = await getDoc(userRef);
 
@@ -38,7 +39,7 @@ async function getUser(db, id) {
 
 
 export {
-  getNft,
+  getNfts,
   getUsers,
   getUser
 }

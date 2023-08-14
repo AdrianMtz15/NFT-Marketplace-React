@@ -2,8 +2,8 @@ import { createContext, useState, useEffect, useRef} from "react";
 import { Navigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-import { db } from "../db/firebase";
-import { getNft, getUsers } from "../db/db";
+import { db } from "../services/firebase";
+import { getNfts, getUsers } from "../services/db";
 import { useLocalStorage } from "../utils/LocalStorage";
 
 const ItemContext = createContext();
@@ -86,7 +86,7 @@ function ItemProvider({children}) {
     const fetchData = async() => {
       try {
         const sellers = await getUsers(db);
-        const nfts = await getNft(db);
+        const nfts = await getNfts(db);
 
         const defaultSellers = await sellers.map(user => {
           return {

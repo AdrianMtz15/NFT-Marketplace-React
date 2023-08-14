@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 import { MainLayout } from "../../Components/MainLayout";
 import { Browser } from "../../Components/Browser";
@@ -8,15 +8,24 @@ import { Card } from "../../Components/Card";
 import { ModalCard } from "../../Components/ModalCard";
 import { ItemContext } from "../../Context";
 import banner from "../../assets/img/dashboard-banner.png";
+import { useNftsActions } from "../../hooks/useNftsActions";
+import { useAppSelector } from "../../hooks/store";
 
 function Dashboard() {
+  const nfts = useAppSelector((state) => state.nfts)
+
   const { 
-    renderItems,
     isNftOpen,
     closeNftModal,
     openNftModal,
     setNftActive,
    } = useContext(ItemContext);
+
+  const { getAllNfts } = useNftsActions();
+
+  React.useEffect(() => {
+    getAllNfts();
+  },[])
 
   return (
     <MainLayout>
@@ -24,6 +33,10 @@ function Dashboard() {
       <div className="z-20 relative">
         <Browser/>
       </div>
+
+      {
+        console.log(nfts)
+      }
 
       {/* Banner */}
       <div className="mt-[3.1vh] relative flex flex-row 
@@ -62,7 +75,7 @@ function Dashboard() {
       {/* Cards de NFT's */}
       <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[30px]">
         {
-          renderItems?.map(item => (
+          nfts?.map(item => (
             <Card 
               key={item.id} 
               item={item} 
