@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import nftsReducer from "./nfts/slice";
+import usersReducer from "./users/slice";
 
 // const localStorageMiddleware = (store) => (next) => (action) => {
 // 	next(action);
@@ -9,6 +10,7 @@ import nftsReducer from "./nfts/slice";
 export const store = configureStore({
 	reducer: {
 		nfts: nftsReducer,
+		users: usersReducer
 	},
 	middleware: [],
 });

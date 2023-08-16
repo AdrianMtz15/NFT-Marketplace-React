@@ -14,6 +14,6 @@ export const nftsSlice = createSlice({
   }
 });
 
-export default nftsSlice.reducer
+export default nftsSlice.reducer;
 
 export const { fetchNfts, createNewNft } = nftsSlice.actions;

@@ -1,8 +1,6 @@
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { ItemContext } from '../../Context';
-import PropTypes from 'prop-types';
 
 import { SellerLabel } from '../SellerLabel';
 import { Button } from '../Button';
@@ -10,15 +8,11 @@ import { XCircleIcon } from '@heroicons/react/24/solid';
 import bitcoinIco from '../../assets/ico/bitcoin.png';
 
 function ModalCard({ 
-  isOpen, 
+  data, 
   closeModal
 }) {
-  const {
-    nftActive,
-  } = useContext(ItemContext);
 
-
-  if (!isOpen) {
+  if (!data.isOpen) {
     return null;
   }
 
@@ -39,13 +33,13 @@ function ModalCard({
       <h3 className='absolute top-0 bg-white w-full h-16 font-sans flex justify-center 
         items-center font-bold text-[2rem] text-center text-[#130F26] rounded-t-[10px] 
         shadow-md'>
-        {nftActive.title}
+        {data.nft.title}
       </h3>
 
       <article className='bg-white shadow-lg p-8 rounded-[10px] mt-10'>
         <img 
           className='w-[100%]' 
-          src={nftActive.img} 
+          src={data.nft.img} 
           alt="nft-img" 
         />
 
@@ -66,19 +60,16 @@ function ModalCard({
         </div>
       </article>
 
-
- 
-
       <article 
         className='justify-between w-[100%] flex flex-row h-[max-content] 
         items-center mt-5 bg-white p-5 shadow-md'
       >
-        <SellerLabel sellerData={nftActive.user}/>
+        <SellerLabel sellerData={data.nft.user}/>
       </article>
 
 
       <article className='w-full mt-5 shadow-md' onClick={closeModal}>
-        <Link to={'marketplace/checkout/' + nftActive.id}>
+        <Link to={'marketplace/checkout/' + data.nft.id}>
           <Button text='Purchase' textColor={'white'} bgColor={'[#0997FF]'}/>
         </Link>
       </article>
@@ -89,7 +80,7 @@ function ModalCard({
 
 
 ModalCard.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  data: PropTypes.object.isRequired,
   closeModal: PropTypes.func.isRequired,
 };
 

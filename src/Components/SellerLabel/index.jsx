@@ -1,31 +1,18 @@
-import { useContext } from 'react';
-import { ItemContext } from '../../Context';
-
+import { useAppSelector } from '../../hooks/store';
 import { Button } from '../Button';
 
 import PropTypes from 'prop-types';
 
-
 function SellerLabel({
   sellerData
 }) {
-
-  const { 
-    sellers,
-    setSellers
-   } = useContext(ItemContext);
+  const users = useAppSelector((state) => state.users);
 
   //  Function - Used for set follow and unfollow seller properties
   const toggleFollow = () => {
-    const updatedSellers = [...sellers]
-    const seller = sellers.find(obj => {
-      return obj.id == sellerData.id;
-    })
-
-    seller.follow = !seller.follow;
-    setSellers(updatedSellers);
+    console.log(users);
+    console.log(sellerData);
   }
-
   
   const textBtn = sellerData.follow ? 'Following' : 'Follow'
   const textColorBtn = sellerData.follow ? '[#0997FF]' : 'white'
