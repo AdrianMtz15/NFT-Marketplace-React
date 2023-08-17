@@ -7,24 +7,13 @@ import { ModalCard } from "../../Components/ModalCard";
 import { Banner } from "../../Components/Banner/Banner";
 import { PopularNfts } from "../../Components/PopularNfts/PopularNfts";
 
-import { useNftsActions } from "../../hooks/useNftsActions";
-import { useUsersActions } from "../../hooks/useUsersActions";
-
 function Dashboard() {
   const [nftOpen, setNftOpen] = React.useState({
     isOpen: false,
     nft: {}
   });
 
-  const { getAllNfts } = useNftsActions();
-  const { getAllUsers } = useUsersActions();
 
-
-  React.useEffect(() => {
-    getAllNfts();
-    getAllUsers();
-
-  },[])
 
   return (
     <MainLayout>
@@ -33,9 +22,10 @@ function Dashboard() {
       </div>
 
       <Banner/>
-      <CategoryBar/>
-      <PopularNfts setNftOpen={setNftOpen}/>
 
+      <CategoryBar/>
+
+      <PopularNfts setNftOpen={setNftOpen}/>
 
       {/* Nfts Modal */}
       <section 

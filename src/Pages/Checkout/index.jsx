@@ -1,21 +1,29 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ItemContext } from "../../Context";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
-
 import { Button } from "../../Components/Button";
 import { CheckoutItem } from "../../Components/CheckoutItem";
 import { MainLayout } from '../../Components/MainLayout';
 import { SellerLabel } from "../../Components/SellerLabel";
+import { useAppSelector } from "../../hooks/store";
 
 function Checkout() {
-  const { items, setSearchInput} = useContext(ItemContext);
-  const currentPath = window.location.pathname;
-  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-          
-  const nft = items.find(obj => {
-    return obj.id == index;
-  })
+  const nfts = useAppSelector((state) => state.nfts);
+  const [nftInCart, setNftInCart] = React.useState(null);
+
+  const { setSearchInput } = useContext(ItemContext);
+
+  React.useEffect(() => {
+    const currentPath = window.location.pathname;
+    const index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+    const nft = nfts.find(obj => {
+      return obj.id === index
+    });
+
+    setNftInCart(nft);
+  }, [nfts])
 
 
   return(
@@ -39,7 +47,7 @@ function Checkout() {
           className="absolute top-0 right-0 left-0 w-full bg-white h-[50px]
           text-[2rem] font-bold text-center rounded-t-[12px] text-[#0997FF]
           flex items-center justify-center">
-          {nft && nft.title}
+          {nftInCart && nftInCart.title}
         </h3>
 
         <article className=" w-full flex flex-row justify-between mb-[5%]">
@@ -51,12 +59,12 @@ function Checkout() {
             </p>
 
             <div className="absolute bottom-0 right-0 left-0 w-full ab">
-              {nft && <SellerLabel sellerData={nft.user}/>}
+              {nftInCart && <SellerLabel sellerData={nftInCart.user}/>}
             </div>
           </div>
 
           <div className="w-[50%]">
-            { nft ? <CheckoutItem item={nft}/> : null }
+            { nftInCart ? <CheckoutItem item={nftInCart}/> : null }
           </div>
         </article>
 
