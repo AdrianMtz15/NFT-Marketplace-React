@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 
-import { useAppSelector } from "../../hooks/store";
 import { Card } from "../Card";
+import { useNftsRender } from '../../hooks/useNftsRender';
+// import { useAppSelector } from '../../hooks/store';
 
 export function PopularNfts({ setNftOpen }) {
-  const nfts = useAppSelector((state) => state.nfts);
+  // const allNfts = useAppSelector(state => state.allNfts);
+  const [nfts] = useNftsRender();
 
   return(
     <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[30px]">

@@ -1,6 +1,33 @@
-import { useAppDispatch } from "../hooks/store";
-import { fetchNfts } from "../redux/nfts/slice";
-import { getNft, getNfts, getUser } from "../services/db";
+import { useAppDispatch } from "./store";
+import { getUser, getNfts } from "../services/db";
+import { setAllNfts, setFilterNfts } from "../redux/nfts/slice";
+
+export function useNftsActions() {
+	const dispatch = useAppDispatch();
+
+  const fetchNfts = async () => {
+    const nfts = await getNfts();
+    const nftsWithUsers = await setNftUser(nfts);
+
+    dispatch(setAllNfts(nftsWithUsers));
+  }
+
+  const setFilterNftsState = (filteredNfts) => {
+    dispatch(setFilterNfts(filteredNfts));
+  }
+
+  // const setNfts = (nfts) => {
+  //   dispatch(setFilteredNfts({
+  //     nftsFiltered: nfts
+  //   }));
+  // }
+
+  return {
+    fetchNfts,
+    setFilterNftsState
+    
+  }
+}
 
 const setNftUser = async (nfts) => {
   const res = Promise.all(nfts.map(async (obj) => {
@@ -12,25 +39,4 @@ const setNftUser = async (nfts) => {
   }));
 
   return res;
-}
-
-export function useNftsActions() {
-	const dispatch = useAppDispatch();
-
-  const getAllNfts = async () => {
-    const data = await getNfts();
-    const nftsWithUsers = await setNftUser(data);
-
-    dispatch(fetchNfts(nftsWithUsers));
-  }
-
-  const fetchNft = async (id) => {
-    const data = await getNft(id);
-    return data;
-  }
-
-  return {
-    getAllNfts,
-    fetchNft
-  }
 }

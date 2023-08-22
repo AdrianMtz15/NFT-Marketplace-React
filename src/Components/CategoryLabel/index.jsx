@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { ItemContext } from '../../Context';
+// import { useContext } from 'react';
+// import { ItemContext } from '../../Context';
 
 import PropTypes from 'prop-types';
 
@@ -7,17 +7,17 @@ function CategoryLabel({
   category
 }) {
 
-  const { 
-    categoryFilter,
-    setCategoryFilter
-  } = useContext(ItemContext);
+  // const { 
+  //   categoryFilter,
+  //   setCategoryFilter
+  // } = useContext(ItemContext);
 
   const toggleCategory = () => {
-    if(categoryFilter == category.title.toLowerCase()) {
-      setCategoryFilter('');
-    } else {
-      setCategoryFilter(category.title.toLowerCase());
-    }
+    // if(categoryFilter == category.title.toLowerCase()) {
+    //   setCategoryFilter('');
+    // } else {
+    //   setCategoryFilter(category.title.toLowerCase());
+    // }
   }
 
   return(

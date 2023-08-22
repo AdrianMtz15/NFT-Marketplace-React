@@ -2,18 +2,38 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const nftsSlice = createSlice({
   name: "nfts",
-  initialState: [],
+  initialState: {
+    allNfts: [],
+    filteredNfts: [],
+  },
   reducers: {
-		fetchNfts: (state, action) => {
-			return state = action.payload;
+		setAllNfts: (state, action) => {
+      const newItems = action.payload;
+
+      const newState = {
+        ...state,
+        allNfts: newItems
+      }
+
+			return newState;
 		},
-    createNewNft: (state, action) => {
+    addNewNft: (state, action) => {
       console.log(state);
       console.log(action);
+    },
+    setFilterNfts: (state, action) => {
+      const filteredItems = action.payload;
+
+      const newState = {
+        ...state,
+        filteredNfts: filteredItems
+      }
+
+      return newState;
     }
   }
 });
 
 export default nftsSlice.reducer;
 
-export const { fetchNfts, createNewNft } = nftsSlice.actions;
+export const { setAllNfts, addNewNft, setFilterNfts } = nftsSlice.actions;

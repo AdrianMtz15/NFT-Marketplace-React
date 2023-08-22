@@ -6,25 +6,36 @@ import { CategoryBar } from "../../Components/CategoryBar";
 import { ModalCard } from "../../Components/ModalCard";
 import { Banner } from "../../Components/Banner/Banner";
 import { PopularNfts } from "../../Components/PopularNfts/PopularNfts";
+import { useAppSelector } from "../../hooks/store";
 
 function Dashboard() {
+  const [isSearching, setIsSearching] = React.useState(false);
   const [nftOpen, setNftOpen] = React.useState({
     isOpen: false,
     nft: {}
   });
 
+  const search = useAppSelector(state => state.browser);
 
+  React.useEffect(() => {
+    if(search.length > 0) {
+      setIsSearching(true);
+    } else {
+      setIsSearching(false);
+    }
+  }, [search]);
 
   return (
     <MainLayout>
       <div className="z-20 relative">
         <Browser/>
       </div>
-
-      <Banner/>
+      
+      {
+        isSearching ? null : <Banner/>
+      }
 
       <CategoryBar/>
-
       <PopularNfts setNftOpen={setNftOpen}/>
 
       {/* Nfts Modal */}

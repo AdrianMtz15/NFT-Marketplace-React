@@ -14,8 +14,8 @@ import { SignIn } from '../SignIn';
 import { SignUp } from '../SignUp';
 
 import './App.css';
-import { useNftsActions } from '../../hooks/useNftsActions';
 import { useUsersActions } from '../../hooks/useUsersActions';
+import { useNftsActions } from '../../hooks/useNftsActions';
 
 
 const AppRoutes = () => {
@@ -38,12 +38,12 @@ const AppRoutes = () => {
 }
 
 function App() {
-  const { getAllNfts } = useNftsActions()
-  const { getAllUsers } = useUsersActions();
+  const { fetchNfts } = useNftsActions();
+  const { setAllUsers } = useUsersActions();
 
   React.useEffect(() => {
-    getAllNfts();
-    getAllUsers();
+    fetchNfts();
+    setAllUsers();
 
   },[])
 

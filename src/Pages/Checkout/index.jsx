@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ItemContext } from "../../Context";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 import { Button } from "../../Components/Button";
 import { CheckoutItem } from "../../Components/CheckoutItem";
@@ -11,8 +10,6 @@ import { useAppSelector } from "../../hooks/store";
 function Checkout() {
   const nfts = useAppSelector((state) => state.nfts);
   const [nftInCart, setNftInCart] = React.useState(null);
-
-  const { setSearchInput } = useContext(ItemContext);
 
   React.useEffect(() => {
     const currentPath = window.location.pathname;
@@ -29,7 +26,7 @@ function Checkout() {
   return(
     <MainLayout>
       <section className="flex flex-row items-center">
-        <Link to={'/marketplace'} onClick={() => setSearchInput('')}>
+        <Link to={'/marketplace'}>
           <ArrowLeftOnRectangleIcon 
             width={'30px'} 
             height={'30px'} 

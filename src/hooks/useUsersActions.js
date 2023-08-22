@@ -6,7 +6,7 @@ import { useAppDispatch } from "./store";
 export function useUsersActions() {
 	const dispatch = useAppDispatch();
 
-  const getAllUsers = async () => {
+  const setAllUsers = async () => {
     const data = await getUsers();
     const users = data.map(obj => {
       return {
@@ -14,10 +14,11 @@ export function useUsersActions() {
         follow: false
       }
     });
+    
     dispatch(fetchUsers(users));
   }
 
   return {
-    getAllUsers
+    setAllUsers
   }
 }

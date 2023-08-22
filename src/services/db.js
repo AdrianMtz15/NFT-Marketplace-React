@@ -1,7 +1,7 @@
 import {collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 import { db } from './firebase';
 
-async function getNft(id) {
+async function getOneNft(id) {
   const userRef = await doc(db, 'nfts', id);
   const docSnap = await getDoc(userRef);
 
@@ -53,7 +53,7 @@ async function getUsers() {
 
 
 export {
-  getNft,
+  getOneNft,
   getNfts,
   getUser,
   getUsers,
