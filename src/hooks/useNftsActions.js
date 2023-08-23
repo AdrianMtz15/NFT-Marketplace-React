@@ -12,8 +12,11 @@ export function useNftsActions() {
     dispatch(setAllNfts(nftsWithUsers));
   }
 
-  const setFilterNftsState = (filteredNfts) => {
-    dispatch(setFilterNfts(filteredNfts));
+  const setFilterNftsState = (filteredNfts, filterType) => {
+    dispatch(setFilterNfts({
+      filteredItems: filteredNfts,
+      filterType
+    }));
   }
 
   // const setNfts = (nfts) => {

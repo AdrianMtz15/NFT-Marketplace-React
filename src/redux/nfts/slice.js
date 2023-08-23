@@ -4,7 +4,8 @@ export const nftsSlice = createSlice({
   name: "nfts",
   initialState: {
     allNfts: [],
-    filteredNfts: [],
+    filteredBySearch: [],
+    filteredByCategory: []
   },
   reducers: {
 		setAllNfts: (state, action) => {
@@ -22,14 +23,19 @@ export const nftsSlice = createSlice({
       console.log(action);
     },
     setFilterNfts: (state, action) => {
-      const filteredItems = action.payload;
+      const { filteredItems, filterType } = action.payload;
 
-      const newState = {
-        ...state,
-        filteredNfts: filteredItems
+      if(filterType === 'category') {
+        return {
+          ...state,
+          filteredByCategory: filteredItems
+        }
+      } else if(filterType === 'search') {
+        return {
+          ...state,
+          filteredBySearch: filteredItems
+        }
       }
-
-      return newState;
     }
   }
 });

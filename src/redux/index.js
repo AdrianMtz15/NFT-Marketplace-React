@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import nftsReducer from "./nfts/slice";
 import usersReducer from "./users/slice";
 import browserReducer from "./browser/slice";
+import categoryReducer from "./category/slice";
 
 // const localStorageMiddleware = (store) => (next) => (action) => {
 // 	next(action);
@@ -12,7 +13,8 @@ export const store = configureStore({
 	reducer: {
 		nfts: nftsReducer,
 		users: usersReducer,
-		browser: browserReducer
+		browser: browserReducer,
+		categories: categoryReducer
 	},
 	middleware: [],
 });

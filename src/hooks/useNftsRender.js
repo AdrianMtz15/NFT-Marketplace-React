@@ -6,8 +6,8 @@ export function useNftsRender() {
   const [nfts, setNfts] = React.useState([]);
 
   React.useEffect(() => {
-    if (nftsState.filteredNfts.length > 0) {
-      setNfts(nftsState.filteredNfts);
+    if (nftsState.filteredBySearch.length > 0) {
+      setNfts(nftsState.filteredBySearch);
     } else {
       setNfts(nftsState.allNfts);
     }

@@ -14,9 +14,22 @@ export function useFilterNfts() {
     return newNfts;
   }
 
+  const filterByCategory = (categories, nfts) => {
+    const newNfts = [];
+
+    nfts.forEach(obj => {
+      categories.forEach(category => {
+        if(obj.category === category) newNfts.push(obj);
+      });
+    });
+
+    return newNfts;
+  }
+
 
   return {
-    filterByTitle
+    filterByTitle,
+    filterByCategory
   }
  
 }
