@@ -1,12 +1,31 @@
+import React from "react";
+import { useAppSelector } from "./store";
 
 export function useFilterNfts() {
+  const nfts = useAppSelector(state => state.nfts.allNfts);
+  const searchFilter = useAppSelector(state => state.browser);
+  const categoryFilter = useAppSelector(state => state.categories.current);
 
-  const filterByTitle = (text, nfts) => {
-    const searchFilter = text.toLowerCase();
+  const [filteredNfts, setFilteredNfts] = React.useState([]);
 
-    const newNfts = [...nfts].filter(obj => {
+  const filterByCategory = (items) => {
+    const newNfts = [];
+
+    items.forEach(obj => {
+      if(obj.category === categoryFilter) newNfts.push(obj);
+    });
+
+    return newNfts;
+
+  }
+
+  const filterByTitle = (items) => {
+    const text = searchFilter.toLowerCase();
+
+    const newNfts = [...items].filter(obj => {
       const nftTitle = obj.title.toLowerCase();
-      if(nftTitle.includes(searchFilter)) {
+
+      if(nftTitle.includes(text)) {
         return obj;
       }
     });
@@ -14,22 +33,16 @@ export function useFilterNfts() {
     return newNfts;
   }
 
-  const filterByCategory = (categories, nfts) => {
-    const newNfts = [];
+  React.useEffect(() => {
+    let itemsFiltered = nfts;
 
-    nfts.forEach(obj => {
-      categories.forEach(category => {
-        if(obj.category === category) newNfts.push(obj);
-      });
-    });
+    if(categoryFilter.length > 0) itemsFiltered = filterByCategory(itemsFiltered);
+    if(searchFilter.length > 0) itemsFiltered = filterByTitle(itemsFiltered);
 
-    return newNfts;
-  }
+    setFilteredNfts(itemsFiltered);
+
+  }, [categoryFilter, searchFilter, nfts]);
 
 
-  return {
-    filterByTitle,
-    filterByCategory
-  }
- 
+  return filteredNfts;
 }

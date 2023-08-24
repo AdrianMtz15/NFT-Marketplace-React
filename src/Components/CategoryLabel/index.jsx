@@ -1,39 +1,34 @@
 import React from 'react';
 import { useCategoryActions } from "../../hooks/useCategoryActions"
-import { useNftsRender } from '../../hooks/useNftsRender';
-import { useFilterNfts } from '../../hooks/useFilterNfts'
 import { useAppSelector } from "../../hooks/store";
-import { useNftsActions } from '../../hooks/useNftsActions';
 
 import PropTypes from 'prop-types';
 
 function CategoryLabel({
   category
 }) {
-  const categoriesActives = useAppSelector(state => state.categories);
+  const currentCategory = useAppSelector(state => state.categories.current);
   const [isActive, setIsActive] = React.useState(false);
-  const [nfts] = useNftsRender();
+  const { setCurrentCategory } = useCategoryActions();
+  const categoryName = category.title.toLowerCase();
 
-  const { setFilterNftsState } = useNftsActions();
-  const { setCategoryName, deleteCategoryName } = useCategoryActions();
-  const { filterByCategory } = useFilterNfts();
 
   const handleFilterByCategory = async () => {
-    const categoryName = category.title.toLowerCase();
-
-    if(isActive) {
-      deleteCategoryName(categoryName);
+    if (isActive) {
+      setCurrentCategory('');
     } else {
-      setCategoryName(categoryName);
+      setCurrentCategory(categoryName);
     }
-
-    setIsActive(!isActive);
   }
 
   React.useEffect(() => {
-    const nftsByCategory = filterByCategory(categoriesActives, nfts);
-    setFilterNftsState(nftsByCategory);
-  }, [categoriesActives])
+    if(currentCategory === categoryName) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    } 
+
+  }, [currentCategory]);
 
   return(
     <li 

@@ -1,40 +1,9 @@
 import { CategoryLabel } from "../CategoryLabel";
-
-import PopularIcon from '../../assets/ico/popularity.png';
-import ArtsIcon from '../../assets/ico/art-and-design.png';
-import GameIcon from '../../assets/ico/console.png';
-import MusicIcon from '../../assets/ico/guitar.png';
-import SportsIcon from '../../assets/ico/sports.png';
-import PhotographyIcon from '../../assets/ico/photography.png';
+import { useAppSelector } from "../../hooks/store";
 
 function CategoryBar() {
 
-  const categories = [
-    {
-      title: 'Popular',
-      iconSrc: PopularIcon,
-    },
-    {
-      title: 'Arts',
-      iconSrc: ArtsIcon,
-    },
-    {
-      title: 'Games',
-      iconSrc: GameIcon,
-    },
-    {
-      title: 'Music',
-      iconSrc: MusicIcon,
-    },
-    {
-      title: 'Sports',
-      iconSrc: SportsIcon,
-    },
-    {
-      title: 'Photography',
-      iconSrc: PhotographyIcon,
-    },
-  ]
+  const categories = useAppSelector(state => state.categories.all);
 
   return(
     <section className="w-full mt-16">

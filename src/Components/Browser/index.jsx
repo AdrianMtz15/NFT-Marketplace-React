@@ -1,25 +1,12 @@
 import { ReactComponent as SearchIcon } from '../../assets/ico/search.svg';
 import { useAppSelector } from '../../hooks/store';
 import { useBrowserActions } from '../../hooks/useBrowserActions';
-import { useFilterNfts } from '../../hooks/useFilterNfts';
-import { useNftsActions } from '../../hooks/useNftsActions';
-import { useNftsRender } from '../../hooks/useNftsRender';
 
 function Browser() {
     const browserSearch = useAppSelector(state => state.browser);
-    const [nfts] = useNftsRender();
-
-    const { setFilterNftsState } = useNftsActions();
-    const { filterByTitle } = useFilterNfts();
     const { setSearchText } = useBrowserActions();
 
     const handleOnSearch = (search) => {
-        if(search.length > 0) {
-            const filteredNfts = filterByTitle(search, nfts);
-            setFilterNftsState(filteredNfts, 'search');
-        } else {
-            setFilterNftsState([], 'search');
-        }
         setSearchText(search);
     }
 

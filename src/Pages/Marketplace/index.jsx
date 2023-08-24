@@ -2,14 +2,17 @@ import { Link } from 'react-router-dom';
 import { MainLayout } from '../../Components/MainLayout';
 import { Browser } from '../../Components/Browser';
 import { Card } from '../../Components/Card';
-import { useNftsRender } from '../../hooks/useNftsRender';
+import { CategoryBar } from '../../Components/CategoryBar';
+import { useFilterNfts } from '../../hooks/useFilterNfts';
 
 function Marketplace() {
-  const [nfts] = useNftsRender()
+  const nfts = useFilterNfts();
 
     return (
       <MainLayout>
         <Browser/>
+
+        <CategoryBar/>
 
         <div className="relative grid gap-[2rem] grid-cols-3 w-full mt-[70px]">
           {

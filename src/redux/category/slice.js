@@ -1,22 +1,53 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import PopularIcon from '../../assets/ico/popularity.png';
+import ArtsIcon from '../../assets/ico/art-and-design.png';
+import GameIcon from '../../assets/ico/console.png';
+import MusicIcon from '../../assets/ico/guitar.png';
+import SportsIcon from '../../assets/ico/sports.png';
+import PhotographyIcon from '../../assets/ico/photography.png';
+
+const initialCategories = [
+  {
+    title: 'Popular',
+    iconSrc: PopularIcon,
+  },
+  {
+    title: 'Arts',
+    iconSrc: ArtsIcon,
+  },
+  {
+    title: 'Games',
+    iconSrc: GameIcon,
+  },
+  {
+    title: 'Music',
+    iconSrc: MusicIcon,
+  },
+  {
+    title: 'Sports',
+    iconSrc: SportsIcon,
+  },
+  {
+    title: 'Photography',
+    iconSrc: PhotographyIcon,
+  },
+]
+
 export const categorySlice = createSlice({
   name: "category",
-  initialState: [],
+  initialState: {
+    all: initialCategories,
+    current: ''
+  },
   reducers: {
     setCategory: (state, action) => {
-      state.push(action.payload); 
+      const currentCategory = action.payload.toLowerCase();
+      state.current = currentCategory;
     },
-    deleteCategory: (state, action) => {
-      const categoryIndex = state.findIndex(elem => {
-        return elem === action.payload;
-      });
-
-      state.splice(categoryIndex, 1);
-    }
   }
 });
 
 export default categorySlice.reducer;
 
-export const { setCategory, deleteCategory } = categorySlice.actions;
+export const { setCategory } = categorySlice.actions;
