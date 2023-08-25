@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 function SellerLabel({
   sellerData
 }) {
-  const [currentUser, setCurrentUser] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState(sellerData);
   const users = useAppSelector((state) => state.users);
 
   const { updateAllUsers } = useUsersActions();
@@ -42,22 +42,22 @@ function SellerLabel({
     searchCurrentUser();
   },[users]);
   
-  const textBtn = sellerData.follow ? 'Following' : 'Follow'
-  const textColorBtn = sellerData.follow ? '[#0997FF]' : 'white'
-  const bgColorBtn = sellerData.follow ? 'white' : '[#0997FF]'
-  const borderBtn = sellerData.follow ? '[#0997FF]' : 'null'
+  const textBtn = currentUser.follow ? 'Following' : 'Follow'
+  const textColorBtn = currentUser.follow ? '[#0997FF]' : 'white'
+  const bgColorBtn = currentUser.follow ? 'white' : '[#0997FF]'
+  const borderBtn = currentUser.follow ? '[#0997FF]' : 'null'
 
   return(
     <div className='flex flex-row w-full items-center'>
       <section className='flex flex-row w-[75%]' >
-        <img className='w-[50px] h-[50px] mr-2' src={sellerData.profileImg} />
+        <img className='w-[50px] h-[50px] mr-2' src={currentUser.profileImg} />
 
         <div className='flex flex-col items-start justify-center leading-snug'>
           <h2 className="font-sans text-[1.8rem] font-bold text-black">
-            {`${sellerData.name.firstName} ${sellerData.name.lastName}`}
+            {`${currentUser.name.firstName} ${currentUser.name.lastName}`}
           </h2>
           
-          <p className="font-sans text-[1.4rem] text-[#9B9DA0]">@{sellerData.username}</p>
+          <p className="font-sans text-[1.4rem] text-[#9B9DA0]">@{currentUser.username}</p>
         </div>
       </section>
       

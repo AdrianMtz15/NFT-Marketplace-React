@@ -19,12 +19,6 @@ export function useNftsActions() {
     }));
   }
 
-  // const setNfts = (nfts) => {
-  //   dispatch(setFilteredNfts({
-  //     nftsFiltered: nfts
-  //   }));
-  // }
-
   return {
     fetchNfts,
     setFilterNftsState

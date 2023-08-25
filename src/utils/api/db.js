@@ -30,7 +30,12 @@ async function getUser(id) {
   const docSnap = await getDoc(userRef);
 
   if (docSnap.exists()) {
-    return await docSnap.data();
+    const data = await docSnap.data();
+
+    return {
+      id: docSnap.id,
+      ...data
+    }
   } else {
     // docSnap.data() will be undefined in this case
     throw Error('No se encontro el documento');
