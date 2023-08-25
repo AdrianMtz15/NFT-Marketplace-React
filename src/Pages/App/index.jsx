@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { useRoutes, HashRouter } from 'react-router-dom';
 
 import { Navbar } from '../../components/global/Navbar';
 import { Dashboard } from '../Dashboard';
@@ -45,10 +45,10 @@ function App() {
   },[])
 
   return (
-      <BrowserRouter>
+      <HashRouter>
         <AppRoutes/>
         <Navbar/>
-      </BrowserRouter>
+      </HashRouter>
   )
 }
 

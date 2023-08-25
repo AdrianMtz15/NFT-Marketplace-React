@@ -8,18 +8,18 @@ import { SellerLabel } from "../../components/users/components/SellerLabel";
 import { useAppSelector } from "../../utils/hooks/useStore";
 
 function Checkout() {
-  const nfts = useAppSelector((state) => state.nfts);
+  const nfts = useAppSelector((state) => state.nfts.allNfts);
   const [nftInCart, setNftInCart] = React.useState(null);
 
   React.useEffect(() => {
     const currentPath = window.location.pathname;
     const index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    console.log(nfts);
+    // const nft = nfts.find(obj => {
+    //   return obj.id === index
+    // });
 
-    const nft = nfts.find(obj => {
-      return obj.id === index
-    });
-
-    setNftInCart(nft);
+    // setNftInCart(nft);
   }, [nfts])
 
 
