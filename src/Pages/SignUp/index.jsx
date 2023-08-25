@@ -1,18 +1,11 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { ItemContext } from '../../Context';
-import { MainLayout } from '../../Components/MainLayout';
+// import { Link } from 'react-router-dom';
+// import { MainLayout } from '../../Components/MainLayout';
 
 function SignUp() {
 
-  const {
-    form,
-    createAccount
-  } = useContext(ItemContext);
-
   return (
-    <MainLayout>
-      <section 
+    {/*<MainLayout>
+       <section 
         className='w-[50%] flex flex-col justify-center items-center m-auto
         text-[2rem]'
       >
@@ -74,8 +67,8 @@ function SignUp() {
           </Link>
 
         </form>
-      </section>
-    </MainLayout>
+      </section> 
+    </MainLayout>*/}
   )
 }
 

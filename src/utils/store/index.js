@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import nftsReducer from "./nfts/slice";
-import usersReducer from "./users/slice";
-import browserReducer from "./browser/slice";
-import categoryReducer from "./category/slice";
+import nftsReducer from "../../components/nfts/store/slice";
+import usersReducer from "../../components/users/store/slice";
+import categoryReducer from "../../components/categories/store/slice";
+import browserReducer from "../../components/global/Browser/store/slice";
 
 // const localStorageMiddleware = (store) => (next) => (action) => {
 // 	next(action);

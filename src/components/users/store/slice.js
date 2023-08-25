@@ -6,11 +6,15 @@ export const usersSlice = createSlice({
   reducers: {
     fetchUsers: (state, action) => {
       return state = action.payload;
+    },
+    updateUsers: (state, action) => {
+      return state = action.payload;
     }
   }
 });
 
 export default usersSlice.reducer;
 export const {
-  fetchUsers
+  fetchUsers,
+  updateUsers
 } = usersSlice.actions;

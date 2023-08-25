@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { ItemContext } from "../../../Context";
-
+import { useAppSelector } from "../../../../utils/hooks/useStore";
 import { SellerLabel } from "../SellerLabel";
 
-function TopSellers() {
-  const { sellers } = useContext(ItemContext);
 
+function TopSellers() {
+  const sellers = useAppSelector(state => state.users)
+  
   return(
     <div className="bg-white w-[85%] h-[max-content] rounded-[10px] mt-[50px] px-[7%] py-[5%] shadow">
       <section className="flex flex-row justify-between items-end">

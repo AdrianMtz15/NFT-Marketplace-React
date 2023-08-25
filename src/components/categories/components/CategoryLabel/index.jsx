@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCategoryActions } from "../../hooks/useCategoryActions"
-import { useAppSelector } from "../../hooks/store";
+import { useAppSelector } from "../../../../utils/hooks/useStore";
 
 import PropTypes from 'prop-types';
 

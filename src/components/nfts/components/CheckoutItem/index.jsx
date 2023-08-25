@@ -1,8 +1,7 @@
 
 import PropTypes from 'prop-types';
 
-
-import bitcoinIco from '../../assets/ico/bitcoin.png';
+import bitcoinIco from '../../ico/bitcoin.png';
 
 
 function CheckoutItem({

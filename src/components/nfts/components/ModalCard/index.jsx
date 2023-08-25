@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 
-import { SellerLabel } from '../../../Components/SellerLabel';
-import { Button } from '../../../Components/Button';
+import { SellerLabel } from '../../../users/components/SellerLabel';
+import { Button } from '../../../global/Button';
 import { XCircleIcon } from '@heroicons/react/24/solid';
-import bitcoinIco from '../../assets/ico/bitcoin.png';
+import bitcoinIco from '../../ico/bitcoin.png';
 
 function ModalCard({ 
   data, 

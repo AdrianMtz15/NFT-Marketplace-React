@@ -1,23 +1,16 @@
-import { useContext } from "react";
-import { ItemContext } from "../../Context";
 import { NavItem } from "../NavItem";
-
 import './index.css';
 
-import arrowRightIcon from '../../assets/ico/arrow-right.png';
-import { ReactComponent as HomeIcon } from '../../assets/ico/home.svg';
-import { ReactComponent as CategoryIcon } from '../../assets/ico/category.svg';
-import { ReactComponent as FolderIcon } from '../../assets/ico/folder.svg';
-import { ReactComponent as SettingIcon } from '../../assets/ico/setting.svg';
-import { ReactComponent as WalletIcon } from '../../assets/ico/wallet.svg';
+import arrowRightIcon from '../assets/ico/arrow-right.png';
+import { ReactComponent as HomeIcon } from '../assets/ico/home.svg';
+import { ReactComponent as CategoryIcon } from '../assets/ico/category.svg';
+import { ReactComponent as FolderIcon } from '../assets/ico/folder.svg';
+import { ReactComponent as SettingIcon } from '../assets/ico/setting.svg';
+import { ReactComponent as WalletIcon } from '../assets/ico/wallet.svg';
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid';
 
 
 function Navbar() {
-
-  const {
-    signOut
-  } = useContext(ItemContext)
 
     const navLinks = [
       {
@@ -65,32 +58,20 @@ function Navbar() {
 
         <ul className="ml-[20%] mb-60">
           {
-            signOut ?
             navLinks.map((item) => {
-              if(item.defaultNav || item.url == '/sign-in')
                 return(
                   <NavItem 
                     key={item.url} 
                     item={item} 
                   />
                 )
-            }) :
-            navLinks.map((item) => {
-              if(item.url != '/sign-in') {
-                return(
-                  <NavItem 
-                    key={item.url} 
-                    item={item} 
-                  />
-                )
-              }
-            })
+            }) 
           }
         </ul>
 
         <section 
           className={`cursor-default relative pb-[20px] mb-[30px] 
-          rounded-[12px] opacity-95 bg-[url('../../assets/img/nav-background.png')] 
+          rounded-[12px] opacity-95 bg-[url('./src/components/global/assets/img/nav-background.png')] 
           bg-[#942BD9] pt-[30px] pl-[10px] bottom-0 right-0 left-0 w-[70%] m-[auto]`}>
 
             <h1 className="text-white mb-[30px] font-bold text-[3rem]">Earn up to $100 worth of NFT</h1>

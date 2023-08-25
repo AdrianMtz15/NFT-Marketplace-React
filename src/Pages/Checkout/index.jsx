@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
-import { Button } from "../../Components/Button";
-import { CheckoutItem } from "../../Components/CheckoutItem";
-import { MainLayout } from '../../Components/MainLayout';
-import { SellerLabel } from "../../Components/SellerLabel";
-import { useAppSelector } from "../../hooks/store";
+import { Button } from "../../components/global/Button";
+import { CheckoutItem } from "../../components/nfts/components/CheckoutItem";
+import { MainLayout } from '../../components/global/MainLayout';
+import { SellerLabel } from "../../components/users/components/SellerLabel";
+import { useAppSelector } from "../../utils/hooks/useStore";
 
 function Checkout() {
   const nfts = useAppSelector((state) => state.nfts);

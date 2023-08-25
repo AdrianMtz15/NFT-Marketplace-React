@@ -1,6 +1,6 @@
-import { useAppDispatch } from "./store";
-import { getUser, getNfts } from "../services/db";
-import { setAllNfts, setFilterNfts } from "../redux/nfts/slice";
+import { useAppDispatch } from "../../../utils/hooks/useStore";
+import { getUser, getNfts } from "../../../utils/api/db";
+import { setAllNfts, setFilterNfts } from "../store/slice";
 
 export function useNftsActions() {
 	const dispatch = useAppDispatch();

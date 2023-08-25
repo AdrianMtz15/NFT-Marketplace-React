@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { MainLayout } from '../../Components/MainLayout';
-import { Browser } from '../../Components/Browser';
-import { Card } from '../../Components/Card';
-import { CategoryBar } from '../../Components/CategoryBar';
-import { useFilterNfts } from '../../hooks/useFilterNfts';
+import { MainLayout } from '../../components/global/MainLayout';
+import { Browser } from '../../components/global/Browser';
+import { Card } from '../../components/nfts/components/Card';
+import { CategoryBar } from '../../components/categories/components/CategoryBar';
+import { useFilterNfts } from '../../components/nfts/hooks/useFilterNfts';
 
 function Marketplace() {
   const nfts = useFilterNfts();

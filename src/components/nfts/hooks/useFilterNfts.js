@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppSelector } from "./store";
+import { useAppSelector } from "../../../utils/hooks/useStore";
 
 export function useFilterNfts() {
   const nfts = useAppSelector(state => state.nfts.allNfts);

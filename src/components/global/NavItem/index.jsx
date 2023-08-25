@@ -1,15 +1,11 @@
-import { cloneElement, useContext } from "react";
+import { cloneElement } from "react";
 import { NavLink } from "react-router-dom";
-import { ItemContext } from "../../Context";
 import PropTypes from 'prop-types';
 
 
 function NavItem({
   item,
 }) {
-  const {
-    setSearchInput
-  } = useContext(ItemContext);
 
   const navActive = 'text-[#0997FF] font-bold';
   const liFontSize = 'text-[16px]';
@@ -18,7 +14,7 @@ function NavItem({
     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
         <NavLink 
           to={item.url} 
-          onClick={() => setSearchInput('')}
+          // onClick={() => setSearchInput('')}
         >
 
           {({ isActive }) => {

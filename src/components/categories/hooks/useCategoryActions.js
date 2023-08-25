@@ -1,5 +1,5 @@
-import { setCategory } from "../categories/store/slice";
-import { useAppDispatch } from "./store";
+import { setCategory } from "../store/slice";
+import { useAppDispatch } from "../../../utils/hooks/useStore";
 
 
 export function useCategoryActions() {

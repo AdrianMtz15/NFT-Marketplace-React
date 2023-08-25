@@ -1,12 +1,12 @@
 import React from "react";
 
-import { MainLayout } from "../../Components/MainLayout";
-import { Browser } from "../../Components/Browser";
-import { CategoryBar } from "../../Components/CategoryBar";
-import { ModalCard } from "../../Components/ModalCard";
-import { Banner } from "../../Components/Banner/Banner";
-import { PopularNfts } from "../../Components/PopularNfts/PopularNfts";
-import { useAppSelector } from "../../hooks/store";
+import { MainLayout } from "../../components/global/MainLayout";
+import { Browser } from "../../components/global/Browser";
+import { CategoryBar } from "../../components/categories/components/CategoryBar";
+import { ModalCard } from "../../components/nfts/components/ModalCard";
+import { Banner } from "../../components/global/Banner/Banner";
+import { PopularNfts } from "../../components/nfts/components/PopularNfts/PopularNfts";
+import { useAppSelector } from "../../utils/hooks/useStore";
 
 function Dashboard() {
   const [isSearching, setIsSearching] = React.useState(false);

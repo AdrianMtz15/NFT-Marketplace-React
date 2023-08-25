@@ -1,12 +1,6 @@
-import { useContext } from 'react';
-import { ItemContext } from '../../Context';
-
 import { BellIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
 
 function ProfileBar() {
-  const {
-    user
-  } = useContext(ItemContext);
 
   return(
     <div className="shadow border-solid border-[#D9D9D9] border-l 
@@ -26,7 +20,7 @@ function ProfileBar() {
         <p 
           className="text-[1.6rem] font-medium text-[#4D4A4A] 
           font-sans mr-[5px]">
-            {user?.name}
+            {/* {user?.name} */}
         </p>
         
         <ChevronDownIcon className="w-[2rem] h-[2rem]"/>

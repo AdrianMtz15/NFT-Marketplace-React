@@ -1,5 +1,5 @@
-import { useAppDispatch } from "./store";
-import { setSearch } from '../redux/browser/slice';
+import { useAppDispatch } from "../../../../utils/hooks/useStore";
+import { setSearch } from '../store/slice';
 
 export function useBrowserActions() {
 	const dispatch = useAppDispatch();

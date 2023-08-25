@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import PopularIcon from '../../assets/ico/popularity.png';
-import ArtsIcon from '../../assets/ico/art-and-design.png';
-import GameIcon from '../../assets/ico/console.png';
-import MusicIcon from '../../assets/ico/guitar.png';
-import SportsIcon from '../../assets/ico/sports.png';
-import PhotographyIcon from '../../assets/ico/photography.png';
+import PopularIcon from '../ico/popularity.png';
+import ArtsIcon from '../ico/art-and-design.png';
+import GameIcon from '../ico/console.png';
+import MusicIcon from '../ico/guitar.png';
+import SportsIcon from '../ico/sports.png';
+import PhotographyIcon from '../ico/photography.png';
 
 const initialCategories = [
   {

@@ -1,5 +1,5 @@
-import { CategoryLabel } from "../../../Components/CategoryLabel";
-import { useAppSelector } from "../../../hooks/store";
+import { CategoryLabel } from "../CategoryLabel";
+import { useAppSelector } from "../../../../utils/hooks/useStore";
 
 function CategoryBar() {
 

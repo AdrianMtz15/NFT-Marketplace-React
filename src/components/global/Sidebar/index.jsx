@@ -1,6 +1,6 @@
 import { ProfileBar } from "../ProfileBar";
-import { Balance } from "../Balance";
-import { TopSellers } from "../TopSellers";
+import { Balance } from "../../users/components/Balance";
+import { TopSellers } from "../../users/components/TopSellers";
 
 function Sidebar() {
     return(

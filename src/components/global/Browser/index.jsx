@@ -1,6 +1,6 @@
-import { ReactComponent as SearchIcon } from '../../assets/ico/search.svg';
-import { useAppSelector } from '../../hooks/store';
-import { useBrowserActions } from '../../hooks/useBrowserActions';
+import { ReactComponent as SearchIcon } from '../assets/ico/search.svg';
+import { useAppSelector } from '../../../utils/hooks/useStore';
+import { useBrowserActions } from './hooks/useBrowserActions';
 
 function Browser() {
     const browserSearch = useAppSelector(state => state.browser);

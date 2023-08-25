@@ -1,7 +1,7 @@
-import { fetchUsers } from "../redux/users/slice";
-import { getUsers } from "../services/db"
-import { useAppDispatch } from "./store";
 
+import { fetchUsers, updateUsers } from "../store/slice";
+import { getUsers } from "../../../utils/api/db";
+import { useAppDispatch } from "../../../utils/hooks/useStore";
 
 export function useUsersActions() {
 	const dispatch = useAppDispatch();
@@ -18,7 +18,12 @@ export function useUsersActions() {
     dispatch(fetchUsers(users));
   }
 
+  const updateAllUsers = (users) => {
+    dispatch(updateUsers(users));
+  }
+
   return {
-    setAllUsers
+    setAllUsers,
+    updateAllUsers
   }
 }
