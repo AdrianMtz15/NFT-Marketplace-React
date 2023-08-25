@@ -12,9 +12,9 @@ function Checkout() {
   const [nftInCart, setNftInCart] = React.useState(null);
 
   React.useEffect(() => {
-    const currentPath = window.location.hash;
+    const currentPath = window.location.pathname;
     const index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-
+    
     const nft = nfts.find(obj => {
       return obj.id === index
     });

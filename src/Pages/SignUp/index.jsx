@@ -1,10 +1,10 @@
-// import { Link } from 'react-router-dom';
-// import { MainLayout } from '../../Components/MainLayout';
+import { Link } from 'react-router-dom';
+import { MainLayout } from '../../Components/MainLayout';
 
 function SignUp() {
 
   return (
-    {/*<MainLayout>
+    <MainLayout>
        <section 
         className='w-[50%] flex flex-col justify-center items-center m-auto
         text-[2rem]'
@@ -14,7 +14,7 @@ function SignUp() {
 
         <form 
           className='w-full flex flex-col'
-          ref={form}
+          // ref={form}
         >
 
           <label className='w-full flex flex-col mb-10'>
@@ -56,7 +56,7 @@ function SignUp() {
           <Link 
             to={'/'}
             className='w-full'
-            onClick={createAccount}
+            // onClick={createAccount}
           >
             <button 
               className='bg-[#0997FF] text-white font-bold p-3 mt-5 w-full' 
@@ -68,7 +68,7 @@ function SignUp() {
 
         </form>
       </section> 
-    </MainLayout>*/}
+    </MainLayout>
   )
 }
 
