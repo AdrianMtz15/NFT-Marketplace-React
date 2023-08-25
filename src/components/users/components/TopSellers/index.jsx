@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ItemContext } from "../../Context";
+import { ItemContext } from "../../../Context";
 
 import { SellerLabel } from "../SellerLabel";
 

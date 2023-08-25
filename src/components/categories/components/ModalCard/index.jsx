@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 
-import { SellerLabel } from '../SellerLabel';
-import { Button } from '../Button';
+import { SellerLabel } from '../../../Components/SellerLabel';
+import { Button } from '../../../Components/Button';
 import { XCircleIcon } from '@heroicons/react/24/solid';
 import bitcoinIco from '../../assets/ico/bitcoin.png';
 

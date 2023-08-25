@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Card } from "../Card";
-import { useFilterNfts } from '../../hooks/useFilterNfts';
+import { useFilterNfts } from '../../../hooks/useFilterNfts';
 
 export function PopularNfts({ setNftOpen }) {
   const nfts = useFilterNfts();

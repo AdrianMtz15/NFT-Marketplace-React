@@ -1,4 +1,4 @@
-import { setCategory } from "../redux/category/slice";
+import { setCategory } from "../categories/store/slice";
 import { useAppDispatch } from "./store";
 
 
