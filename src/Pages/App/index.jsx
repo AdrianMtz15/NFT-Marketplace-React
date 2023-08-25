@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRoutes, HashRouter } from 'react-router-dom';
+import { useRoutes, BrowserRouter } from 'react-router-dom';
 
 import { Navbar } from '../../components/global/Navbar';
 import { Dashboard } from '../Dashboard';
@@ -9,7 +9,7 @@ import { MyCollection } from '../MyCollection';
 // import { MyAccount } from '../MyAccount';
 import { Wallet } from '../Wallet';
 import { NotFound } from '../NotFound';
-// import { SignIn } from '../SignIn';
+import { SignIn } from '../SignIn';
 import { SignUp } from '../SignUp';
 
 import './App.css';
@@ -26,7 +26,7 @@ const AppRoutes = () => {
     { path: '/my-collection', element: <MyCollection/> },
     // { path: '/my-account', element: <MyAccount/> },
     { path: '/wallet', element: <Wallet/> },
-    // { path: '/sign-in', element: <SignIn/> },
+    { path: '/sign-in', element: <SignIn/> },
     { path: '/sign-up', element: <SignUp/> },
     { path: '/*', element: <NotFound/> },
   ]);
@@ -45,10 +45,10 @@ function App() {
   },[])
 
   return (
-      <HashRouter>
+      <BrowserRouter>
         <AppRoutes/>
         <Navbar/>
-      </HashRouter>
+      </BrowserRouter>
   )
 }
 
