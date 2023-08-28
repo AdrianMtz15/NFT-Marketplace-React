@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MainLayout } from '../../Components/MainLayout';
+import { MainLayout } from '../../components/global/MainLayout';
 
 function SignUp() {
 

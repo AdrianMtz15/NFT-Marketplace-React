@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 import { Button } from "../../components/global/Button";
 import { CheckoutItem } from "../../components/nfts/components/CheckoutItem";
@@ -8,11 +8,12 @@ import { SellerLabel } from "../../components/users/components/SellerLabel";
 import { useAppSelector } from "../../utils/hooks/useStore";
 
 function Checkout() {
+  const isAuth = useAppSelector(state => state.session.isAuth);
   const nfts = useAppSelector((state) => state.nfts.allNfts);
   const [nftInCart, setNftInCart] = React.useState(null);
 
   React.useEffect(() => {
-    const currentPath = window.location.pathname;
+    const currentPath = window.location.hash;
     const index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     
     const nft = nfts.find(obj => {
@@ -21,7 +22,18 @@ function Checkout() {
 
 
     setNftInCart(nft);
-  }, [nfts])
+  }, [nfts]);
+
+  const handleBuy = () => {
+    console.log('handle');
+    console.log(isAuth);
+    
+    if(!isAuth) {
+    console.log(isAuth);
+
+      return <Navigate to={'/sign-in'}/>
+    }
+  }
 
 
   return(
@@ -66,7 +78,7 @@ function Checkout() {
           </div>
         </article>
 
-        <article>
+        <article onClick={handleBuy}>
           <Button
             text="BUY NOW"
             textColor={"white"}
