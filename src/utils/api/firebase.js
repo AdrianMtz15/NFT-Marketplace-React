@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
+import { getAuth } from 'firebase/auth'
 
 // Configura tu objeto de configuración de Firebase
 const firebaseConfig = {
@@ -13,12 +14,13 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-
 export {
-  db
+  db,
+  auth
 }
 
 

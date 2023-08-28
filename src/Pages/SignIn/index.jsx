@@ -1,7 +1,28 @@
-import { Link, Navigate } from 'react-router-dom';
+import React from 'react';
+
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../utils/api/firebase';
+
+import { Link, useNavigate } from 'react-router-dom';
 import { MainLayout } from '../../components/global/MainLayout';
+import { useSessionActions } from '../../utils/hooks/useSessionActions';
 
 function SignIn() {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const navigate = useNavigate();
+  const { sessionLogin } = useSessionActions();
+
+  const handleSignIn = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      sessionLogin(email, password);
+      navigate('/');
+    } catch (error) {
+      console.error('Error al logear usuario', error);
+    }
+  }
 
   return (
     <MainLayout>
@@ -19,8 +40,8 @@ function SignIn() {
                 type="email"
                 name="email"
                 placeholder='Enter your Email'
-                // defaultValue={user?.email}
-                // onChange={handleInputChange}
+                defaultValue={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
             </label>
 
@@ -31,27 +52,27 @@ function SignIn() {
                 type="password"
                 name="password"
                 placeholder='Enter your Password'
-                // defaultValue={user?.password}
-                // onChange={handleInputChange}
+                defaultValue={password}
+                onChange={(event) => setPassword(event.target.value)}
               />
             </label>
 
-          <Link 
+          {/* <Link 
             className='w-full' 
             to={'/'}
             onClick={() => {
               // setSignOut(false);
               return <Navigate replace to={'/'}/>
             }}
-          >
+          > */}
             <button 
               className='bg-[#0997FF] text-white font-bold p-3 w-full' 
               type="button"
-              // disabled={!user?.email}
+              onClick={handleSignIn}
             >
               Login
             </button>
-          </Link>
+          {/* </Link> */}
 
 
           <Link className='w-full' to={'/sign-up'}>

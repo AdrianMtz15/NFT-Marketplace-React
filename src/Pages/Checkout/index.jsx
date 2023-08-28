@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 import { Button } from "../../components/global/Button";
 import { CheckoutItem } from "../../components/nfts/components/CheckoutItem";
@@ -8,6 +8,7 @@ import { SellerLabel } from "../../components/users/components/SellerLabel";
 import { useAppSelector } from "../../utils/hooks/useStore";
 
 function Checkout() {
+  const navigate = useNavigate();
   const isAuth = useAppSelector(state => state.session.isAuth);
   const nfts = useAppSelector((state) => state.nfts.allNfts);
   const [nftInCart, setNftInCart] = React.useState(null);
@@ -25,13 +26,8 @@ function Checkout() {
   }, [nfts]);
 
   const handleBuy = () => {
-    console.log('handle');
-    console.log(isAuth);
-    
     if(!isAuth) {
-    console.log(isAuth);
-
-      return <Navigate to={'/sign-in'}/>
+      return navigate('/sign-in');
     }
   }
 

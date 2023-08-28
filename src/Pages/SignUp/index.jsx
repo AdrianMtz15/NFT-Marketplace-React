@@ -1,7 +1,23 @@
+import React from 'react';
+
+import { auth } from '../../utils/api/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
 import { Link } from 'react-router-dom';
 import { MainLayout } from '../../components/global/MainLayout';
 
 function SignUp() {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const handleSignUp = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log('Usuario registrado exitosamente');
+    } catch (error) {
+      console.error('Error al registrar usuario', error);
+    }
+  }
 
   return (
     <MainLayout>
@@ -18,18 +34,18 @@ function SignUp() {
         >
 
           <label className='w-full flex flex-col mb-10'>
-            Name
+            Email
             <input
               className='bg-[#D9D9D9] focus:outline-none p-3'
               type="text"
-              name="name"
-              placeholder='Enter your Name'
-              // value={formData.name}
-              // onChange={handleInputChange}
+              name="email"
+              placeholder='Enter your Email'
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </label>
 
-          <label className='w-full flex flex-col mb-10'>
+          {/* <label className='w-full flex flex-col mb-10'>
             Email
             <input
               className='bg-[#D9D9D9] focus:outline-none p-3'
@@ -39,7 +55,7 @@ function SignUp() {
               // value={formData.name}
               // onChange={handleInputChange}
             />
-          </label>
+          </label> */}
 
           <label className='w-full flex flex-col mb-10'>
             Password
@@ -48,8 +64,8 @@ function SignUp() {
               type="password"
               name="password"
               placeholder='Enter your Password'
-              // value={formData.email}
-              // onChange={handleInputChange}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
             />
           </label>
 
@@ -61,6 +77,7 @@ function SignUp() {
             <button 
               className='bg-[#0997FF] text-white font-bold p-3 mt-5 w-full' 
               type="button"
+              onClick={handleSignUp}
             >
                 SignUp
             </button>
