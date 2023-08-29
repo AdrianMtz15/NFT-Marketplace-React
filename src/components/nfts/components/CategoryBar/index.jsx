@@ -6,7 +6,7 @@ function CategoryBar() {
   const categories = useAppSelector(state => state.categories.all);
 
   return(
-    <section className="w-full mt-16">
+    <section className="max-w-[620px] w-[620px] mt-16">
         <div className="flex flex-row justify-between items-end mb-7">
           <article className="flex flex-row items-end">
             <h2 className="font-sans font-bold text-[1.5rem] text-[#1B1A1E] mr-10">ALL NFTS</h2>

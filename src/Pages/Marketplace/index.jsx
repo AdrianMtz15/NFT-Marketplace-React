@@ -14,14 +14,16 @@ function Marketplace() {
 
         <CategoryBar/>
 
-        <div className="relative grid gap-[2rem] grid-cols-3 w-full mt-[70px]">
+        <div className="relative w-full mt-[70px] flex flex-row justify-center flex-wrap">
           {
             nfts?.map((item) => {
-                return(
-                  <Link key={item.id} to={'/marketplace/checkout/' + item.id} >
+              return(
+                <Link key={item.id} to={'/marketplace/checkout/' + item.id} >
+                  <div className='w-[200px] p-3'>
                     <Card item={item}/>
-                  </Link>
-                )
+                  </div>
+                </Link>
+              )
             })
           }
         </div>
