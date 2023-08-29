@@ -25,11 +25,11 @@ const AppRoutes = () => {
     { path: '/', element: isAuth ? <Dashboard/> : <Navigate to={'/sign-in'}/> },
     { path: '/marketplace', element: <Marketplace/> },
     { path: '/marketplace/checkout/:id', element: <Checkout/> },
-    { path: '/my-collection', element: <MyCollection/> },
-    { path: '/my-account', element: <MyAccount/> },
-    { path: '/wallet', element: <Wallet/> },
-    { path: '/sign-in', element: <SignIn/> },
-    { path: '/sign-up', element: <SignUp/> },
+    { path: '/my-collection', element: isAuth ? <MyCollection/> : <Navigate to={'/sign-in'}/> },
+    { path: '/my-account', element: isAuth ? <MyAccount/> : <Navigate to={'/sign-in'}/> },
+    { path: '/wallet', element: isAuth ? <Wallet/> : <Navigate to={'/sign-in'}/>},
+    { path: '/sign-in', element: isAuth ? <Navigate to={'/'}/> : <SignIn/> },
+    { path: '/sign-up', element: isAuth ? <Navigate to={'/'}/> : <SignUp/> },
     { path: '/*', element: <NotFound/> },
   ]);
 

@@ -7,8 +7,6 @@ import { useAppSelector } from "../../utils/hooks/useStore";
 import { useSessionActions } from "../../utils/hooks/useSessionActions";
 import { useLocalStorage } from "../../utils/hooks/useLocalStorage";
 
-import profileImg from '../../components/global/assets/img/profile-img.png';
-
 function MyAccount() {
   const navigate = useNavigate();
   const user = useAppSelector(state => state.session.user);
@@ -31,7 +29,10 @@ function MyAccount() {
         className={`flex flex-row w-[80%] justify-evenly items-center`}>
 
         <article>
-          <img src={profileImg} alt="profile-img" />
+          <img 
+            src='https://firebasestorage.googleapis.com/v0/b/nft-marketplace-94b84.appspot.com/o/users-photos%2FEllipse%204.png?alt=media&token=853964c0-4bf2-4e58-9c60-e17a08448003'
+            alt="profile-img" 
+          />
         </article>
 
         <article className="text-[2rem]">

@@ -1,13 +1,15 @@
 import { BellIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import { useAppSelector } from '../../../utils/hooks/useStore';
 
 function ProfileBar() {
+  const user = useAppSelector(state => state.session.user);
 
   return(
     <div className="shadow border-solid border-[#D9D9D9] border-l 
       z-10 h-[10vh] w-[30vw] bg-white flex flex-row justify-center 
       items-center fixed top-0 right-0 "
     >
-      <BellIcon className="w-[2rem] h-[2rem] mx-[8px] cursor-pointer"/>
+      {/* <BellIcon className="w-[2rem] h-[2rem] mx-[8px] cursor-pointer"/> */}
 
       <div className="mx-[8px] flex flex-row items-center justify-center cursor-pointer">
 
@@ -20,10 +22,10 @@ function ProfileBar() {
         <p 
           className="text-[1.6rem] font-medium text-[#4D4A4A] 
           font-sans mr-[5px]">
-            {/* {user?.name} */}
+            {user?.username}
         </p>
         
-        <ChevronDownIcon className="w-[2rem] h-[2rem]"/>
+        {/* <ChevronDownIcon className="w-[2rem] h-[2rem]"/> */}
       </div>
     </div>
   );
