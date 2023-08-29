@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialAuth = JSON.parse(localStorage.getItem('auth'))?.isAuth || false;
+const initialUser = JSON.parse(localStorage.getItem('auth'))?.user || false;
+
 export const sessionSlice = createSlice({
   name: "session",
   initialState: {
-    user: null,
-    isAuth: false
+    user: initialUser,
+    isAuth: initialAuth
   },
   reducers: {
 		login: (state, action) => {

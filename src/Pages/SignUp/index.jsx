@@ -32,6 +32,18 @@ function SignUp() {
           className='w-full flex flex-col'
           // ref={form}
         >
+{/* 
+          <label className='w-full flex flex-col mb-10'>
+            UserName
+            <input
+              className='bg-[#D9D9D9] focus:outline-none p-3'
+              type="text"
+              name="username"
+              placeholder='Create a UserName'
+              value={username}
+              onChange={setUsername}
+            />
+          </label> */}
 
           <label className='w-full flex flex-col mb-10'>
             Email
@@ -44,18 +56,6 @@ function SignUp() {
               onChange={(event) => setEmail(event.target.value)}
             />
           </label>
-
-          {/* <label className='w-full flex flex-col mb-10'>
-            Email
-            <input
-              className='bg-[#D9D9D9] focus:outline-none p-3'
-              type="email"
-              name="email"
-              placeholder='Enter your Email'
-              // value={formData.name}
-              // onChange={handleInputChange}
-            />
-          </label> */}
 
           <label className='w-full flex flex-col mb-10'>
             Password

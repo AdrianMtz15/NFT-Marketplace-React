@@ -6,7 +6,7 @@ import { Dashboard } from '../pages/Dashboard';
 import { Marketplace } from '../pages/Marketplace';
 import { Checkout } from '../pages/Checkout';
 import { MyCollection } from '../pages/MyCollection';
-// import { MyAccount } from '../MyAccount';
+import { MyAccount } from '../pages/MyAccount';
 import { Wallet } from '../pages/Wallet';
 import { NotFound } from '../pages/NotFound';
 import { SignIn } from '../pages/SignIn';
@@ -26,7 +26,7 @@ const AppRoutes = () => {
     { path: '/marketplace', element: <Marketplace/> },
     { path: '/marketplace/checkout/:id', element: <Checkout/> },
     { path: '/my-collection', element: <MyCollection/> },
-    // { path: '/my-account', element: <MyAccount/> },
+    { path: '/my-account', element: <MyAccount/> },
     { path: '/wallet', element: <Wallet/> },
     { path: '/sign-in', element: <SignIn/> },
     { path: '/sign-up', element: <SignUp/> },

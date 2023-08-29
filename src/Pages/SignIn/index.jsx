@@ -6,6 +6,7 @@ import { auth } from '../../utils/api/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { MainLayout } from '../../components/global/MainLayout';
 import { useSessionActions } from '../../utils/hooks/useSessionActions';
+import { useLocalStorage } from '../../utils/hooks/useLocalStorage';
 
 function SignIn() {
   const [email, setEmail] = React.useState('');
@@ -13,12 +14,23 @@ function SignIn() {
 
   const navigate = useNavigate();
   const { sessionLogin } = useSessionActions();
+  const { setKey } = useLocalStorage();
 
   const handleSignIn = async () => {
+    const username = email.substring(0, email.lastIndexOf('@'));
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      sessionLogin(email, password);
+      sessionLogin(username, email, password);
       navigate('/');
+      setKey('auth', {
+        isAuth: true,
+        user: {
+          username,
+          email,
+          password
+        }
+      });
     } catch (error) {
       console.error('Error al logear usuario', error);
     }
@@ -57,14 +69,6 @@ function SignIn() {
               />
             </label>
 
-          {/* <Link 
-            className='w-full' 
-            to={'/'}
-            onClick={() => {
-              // setSignOut(false);
-              return <Navigate replace to={'/'}/>
-            }}
-          > */}
             <button 
               className='bg-[#0997FF] text-white font-bold p-3 w-full' 
               type="button"
@@ -72,15 +76,12 @@ function SignIn() {
             >
               Login
             </button>
-          {/* </Link> */}
-
 
           <Link className='w-full' to={'/sign-up'}>
             <button 
               className='bg-white text-[#0997FF] font-bold p-3 mt-5
               border border-[#0997FF] w-full' 
               type="button"
-              // disabled={user?.email}
             >
                 SignUp
             </button>
