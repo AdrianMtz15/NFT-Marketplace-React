@@ -7,6 +7,8 @@ import { MainLayout } from '../../components/global/MainLayout';
 import { SellerLabel } from "../../components/users/components/SellerLabel";
 import { useAppSelector } from "../../utils/hooks/useStore";
 
+import "./index.css"
+
 function Checkout() {
   const navigate = useNavigate();
   const isAuth = useAppSelector(state => state.session.isAuth);
@@ -56,22 +58,24 @@ function Checkout() {
           {nftInCart && nftInCart.title}
         </h3>
 
-        <article className=" w-full flex flex-row justify-between mb-[5%]">
-          <div className="relative w-[45%]">
+        <article className=" w-full flex flex-row justify-between mb-[5%] flex-wrap">
+
+          <div id="desc-container" className="flex relative justify-between flex-col w-[100%] min-w-[200px] order-1">
             <h3 className="text-[1.8rem] font-bold">Description</h3>
 
             <p className="text-[1.5rem] max-h-[170px]">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, nesciunt! Quibusdam quisquam maiores quis asperiores porro.
             </p>
 
-            <div className="absolute bottom-0 right-0 left-0 w-full ab">
+            <div className="relative bottom-0 right-0 left-0 w-full mt-3">
               {nftInCart && <SellerLabel sellerData={nftInCart.user}/>}
             </div>
           </div>
 
-          <div className="w-[50%]">
+          <div id="nft-container" className="w-[100%] min-w-[220px] order-2">
             { nftInCart ? <CheckoutItem item={nftInCart}/> : null }
           </div>
+
         </article>
 
         <article onClick={handleBuy}>

@@ -1,0 +1,11 @@
+@media (min-width: 482px) {
+  #nft-container {
+    order: 1;
+    width: 50%;
+  }
+
+  #desc-container {
+    order: 2;
+    width: 45%;
+  }
+}

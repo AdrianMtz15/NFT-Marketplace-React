@@ -11,20 +11,27 @@ export function PopularNfts({ setNftOpen }) {
 
   return(
     <div 
-      className="relative flex flex-row flex-wrap justify-center w-full 
+      className="relative flex flex-row flex-wrap justify-center w-[100%]
       max-w-[700px] mt-[30px] mx-auto">
       {
         nfts?.map(item => (
-          <Card 
+          <div 
             key={item.id} 
-            item={item} 
-            onClick={() => {
-              setNftOpen({
-                isOpen: true,
-                nft: item
-              });
-            }}
-          />
+            className='relative w-[30%] mx-2 my-3 min-w-[200px] 
+            lg:min-w-[180px]'
+          >
+
+            <Card 
+              item={item} 
+              onClick={() => {
+                setNftOpen({
+                  isOpen: true,
+                  nft: item
+                });
+              }}
+            />
+            
+          </div>
         )) 
       }
     </div>

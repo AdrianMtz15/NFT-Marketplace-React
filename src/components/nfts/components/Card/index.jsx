@@ -8,8 +8,9 @@ function Card({
   return(
     <section 
       onClick={onClick}
-      className={`cursor-pointer shadow p-[10px] relative flex flex-col mx-2 my-3
-      items-center justify-center w-[30%] bg-[#F6FAFF] rounded-[12px] min-w-[180px]`}
+      className={`cursor-pointer shadow p-[10px] relative flex flex-col 
+      items-center justify-center w-[100%] bg-[#F6FAFF] rounded-[12px] 
+      `}
     >
 
       <img 

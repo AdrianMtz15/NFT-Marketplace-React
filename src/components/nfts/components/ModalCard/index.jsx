@@ -18,8 +18,9 @@ function ModalCard({
 
   return createPortal(
     <section 
-      className='relative flex flex-col items-center w-[60%] bg-[#F6FAFF] 
-      shadow-lg p-[30px] rounded-[10px] border-solid  border-[#9B9DA0]' 
+      className='relative flex flex-col items-center w-[90%] max-w-[400px] lg:w-[60%] bg-[#F6FAFF] 
+      shadow-lg p-[30px] rounded-[10px] border-solid border-[#9B9DA0] 
+      bottom-[200px] lg:bottom-0' 
     >
 
       <article className='absolute top-[10px] right-[10px] w-[30px]

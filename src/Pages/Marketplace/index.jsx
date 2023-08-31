@@ -18,10 +18,17 @@ function Marketplace() {
           {
             nfts?.map((item) => {
               return(
-                <Link key={item.id} to={'/marketplace/checkout/' + item.id} >
-                  <div className='w-[200px] p-3'>
+                <Link 
+                  className='w-[80%] max-w-[300px] md:w-[30%] relative 
+                  mx-2 my-3 min-w-[200px] lg:min-w-[180px]' 
+                  key={item.id} 
+                  to={'/marketplace/checkout/' + item.id} 
+                >
+
+                  <div className='w-[100%]'>
                     <Card item={item}/>
                   </div>
+
                 </Link>
               )
             })

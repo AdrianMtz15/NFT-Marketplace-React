@@ -11,7 +11,8 @@ function Browser() {
     }
 
     return(
-        <section className="mx-auto  bg-[#F6FAFF] w-[45%] h-[40px] rounded-[12px] relative">
+        <section className="mx-auto bg-[#F6FAFF] w[80%] max-w-[700px] lg:w-[45%] h-[60px] 
+        rounded-[12px] relative">
             <SearchIcon alt="browser-icon" className="absolute m-auto top-0 bottom-0 left-[3%]"/>
             
             <input 

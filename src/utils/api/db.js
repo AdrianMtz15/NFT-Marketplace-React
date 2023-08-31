@@ -23,7 +23,6 @@ async function getNfts() {
     return obj;
   })
 
-  console.log(nftList);
   return nftList;
 }
 
