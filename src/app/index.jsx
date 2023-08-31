@@ -2,15 +2,15 @@ import React from 'react';
 import { useRoutes, HashRouter, Navigate } from 'react-router-dom';
 
 import { Navbar } from '../components/global/Navbar';
-import { Dashboard } from '../pages/Dashboard';
-import { Marketplace } from '../pages/Marketplace';
-import { Checkout } from '../pages/Checkout';
-// import { MyCollection } from '../pages/MyCollection';
-import { MyAccount } from '../pages/MyAccount';
-// import { Wallet } from '../pages/Wallet';
-import { NotFound } from '../pages/NotFound';
-import { SignIn } from '../pages/SignIn';
-import { SignUp } from '../pages/SignUp';
+import { Dashboard } from '../Pages/Dashboard';
+import { Marketplace } from '../Pages/Marketplace';
+import { Checkout } from '../Pages/Checkout';
+// import { MyCollection } from '../Pages/MyCollection';
+import { MyAccount } from '../Pages/MyAccount';
+// import { Wallet } from '../Pages/Wallet';
+import { NotFound } from '../Pages/NotFound';
+import { SignIn } from '../Pages/SignIn';
+import { SignUp } from '../Pages/SignUp';
 
 import { useAppSelector } from '../utils/hooks/useStore';
 import { useUsersActions } from '../components/users/hooks/useUsersActions';
