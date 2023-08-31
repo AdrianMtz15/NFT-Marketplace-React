@@ -1,5 +1,6 @@
 import { Button } from "../Button";
 import banner from "../assets/img/dashboard-banner.png";
+import bannerMask from "../assets/img/banner-mask.png"
 
 export function Banner() {
   return(

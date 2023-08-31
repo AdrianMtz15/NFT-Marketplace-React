@@ -2,6 +2,8 @@ import { NavItem } from "../NavItem";
 import './index.css';
 
 import arrowRightIcon from '../assets/ico/arrow-right.png';
+import navBackground from '../assets/img/nav-background.png';
+
 import { ReactComponent as HomeIcon } from '../assets/ico/home.svg';
 import { ReactComponent as CategoryIcon } from '../assets/ico/category.svg';
 // import { ReactComponent as FolderIcon } from '../assets/ico/folder.svg';
