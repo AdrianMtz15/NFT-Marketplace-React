@@ -7,6 +7,8 @@ import { ModalCard } from "../../components/nfts/components/ModalCard";
 import { Banner } from "../../components/global/Banner/Banner";
 import { PopularNfts } from "../../components/nfts/components/PopularNfts/PopularNfts";
 import { useAppSelector } from "../../utils/hooks/useStore";
+import { Balance } from "../../components/users/components/Balance";
+import { TopSellers } from "../../components/users/components/TopSellers";
 
 function Dashboard() {
   const [isSearching, setIsSearching] = React.useState(false);
@@ -37,6 +39,11 @@ function Dashboard() {
 
       <CategoryBar/>
       <PopularNfts setNftOpen={setNftOpen}/>
+
+      <div className="w-full lg:hidden">
+        <Balance/>
+        <TopSellers/>
+      </div>
 
       {/* Nfts Modal */}
       <section 

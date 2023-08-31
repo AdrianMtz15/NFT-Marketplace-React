@@ -33,7 +33,10 @@ function CategoryLabel({
   return(
     <li 
       onClick={handleFilterByCategory}
-      className={`bg-${isActive ? '[#0997FF]': '[#F6FAFF]'} flex flex-row items-center px-5 py-4 rounded-[5px] cursor-pointer`}
+      className={
+        `bg-${isActive ? '[#0997FF]': '[#F6FAFF]'} flex flex-row items-center 
+        px-5 py-4 rounded-[5px] cursor-pointer my-3 mx-2`
+      }
     >
       <img className='w-[15px] mr-3' src={category.iconSrc} alt="category-icon" />
       <p className={`fonts-sans font-medium text-[1rem] text-${isActive ? 'white' : '[#9B9DA0]'}`}>{category.title}</p>

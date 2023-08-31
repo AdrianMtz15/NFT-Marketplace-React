@@ -5,8 +5,8 @@ export function Banner() {
   return(
     <div className="mt-[3.1vh] relative flex flex-row 
       bg-[url('./src/components/global/assets/img/banner-mask.png')]  py-[2.5rem] 
-      px-[3rem] w-[100%] h-[max-content] bg-[#0997FF] opacity-90 
-      rounded-[12px] ">
+      px-[3rem] w-[100%] max-w-[700px] h-[max-content] bg-[#0997FF] opacity-90 
+      rounded-[12px] mx-auto">
 
       <div className="z-10 w-[100%] cursor-default">
         <h1 

@@ -60,8 +60,8 @@ function Checkout() {
           <div className="relative w-[45%]">
             <h3 className="text-[1.8rem] font-bold">Description</h3>
 
-            <p className="text-[1.5rem]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, nesciunt! Quibusdam quisquam maiores quis asperiores porro, corrupti deserunt, ipsa incidunt maxime, accusantium eum quod libero exercitationem modi qui cum velit!
+            <p className="text-[1.5rem] max-h-[170px]">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, nesciunt! Quibusdam quisquam maiores quis asperiores porro.
             </p>
 
             <div className="absolute bottom-0 right-0 left-0 w-full ab">

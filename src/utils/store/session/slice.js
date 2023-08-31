@@ -7,7 +7,8 @@ export const sessionSlice = createSlice({
   name: "session",
   initialState: {
     user: initialUser,
-    isAuth: initialAuth
+    isAuth: initialAuth,
+    navActive: false
   },
   reducers: {
 		login: (state, action) => {
@@ -17,6 +18,9 @@ export const sessionSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.isAuth = false;
+    },
+    toggleNav: (state) => {
+      state.navActive = !state.navActive;
     }
 
   }
@@ -24,4 +28,4 @@ export const sessionSlice = createSlice({
 
 export default sessionSlice.reducer;
 
-export const { login, logout } = sessionSlice.actions;
+export const { login, logout, toggleNav } = sessionSlice.actions;

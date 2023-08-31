@@ -6,7 +6,7 @@ function CategoryBar() {
   const categories = useAppSelector(state => state.categories.all);
 
   return(
-    <section className="w-[620px] mt-16 mx-auto">
+    <section className="w-full max-w-[620px] mt-16 mx-auto">
         <div className="flex flex-row justify-between items-end mb-7">
           <article className="flex flex-row items-end">
             <h2 className="font-sans font-bold text-[1.5rem] text-[#1B1A1E] mr-10">ALL NFTS</h2>
@@ -16,7 +16,7 @@ function CategoryBar() {
           <p className="font-sans text-[1.2rem] text-[#24D4FB] cursor-pointer hover:underline">See all</p>
         </div>
 
-        <ul className="flex flex-row justify-around">
+        <ul className="flex flex-row flex-wrap justify-start">
           {
             categories.map(cat => (
               <CategoryLabel key={cat.title} category={cat}/>

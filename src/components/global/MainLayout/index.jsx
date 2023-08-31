@@ -12,8 +12,8 @@ function MainLayout({
 
   return(
     <main 
-      className={`relative p-[2.5%] ml-[20vw] ${ isAuth ? 'w-[50vw]' : 'w-[75vw]'} 
-      h-[100vh] overflow-auto`}>
+      className={`w-[100vw] relative flex-col pt-[12vh] lg:pt-5 items-center justify-center p-[2.5%] 
+      lg:ml-[20vw] ${ isAuth ? 'lg:w-[50vw]' : 'lg:w-[75vw]'} h-[100vh] overflow-auto`}>
       {children}
       <Sidebar/>
     </main>

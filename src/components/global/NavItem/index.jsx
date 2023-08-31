@@ -2,10 +2,13 @@ import { cloneElement } from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 
+import { useSessionActions } from '../../../utils/hooks/useSessionActions';
 
 function NavItem({
   item,
 }) {
+
+  const { sessionToggleNav } = useSessionActions();
 
   const navActive = 'text-[#0997FF] font-bold';
   const liFontSize = 'text-[16px]';
@@ -14,7 +17,7 @@ function NavItem({
     <li className={`${liFontSize} mb-6 font-sans max-w-max`}>
         <NavLink 
           to={item.url} 
-          // onClick={() => setSearchInput('')}
+          onClick={sessionToggleNav}
         >
 
           {({ isActive }) => {

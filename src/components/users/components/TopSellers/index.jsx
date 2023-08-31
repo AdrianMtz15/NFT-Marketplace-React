@@ -6,7 +6,11 @@ function TopSellers() {
   const sellers = useAppSelector(state => state.users)
   
   return(
-    <div className="bg-white w-[85%] h-[max-content] rounded-[10px] mt-[50px] px-[7%] py-[5%] shadow">
+    <div className="bg-white w-[85%] h-[max-content] 
+      rounded-[10px] mt-[50px] px-[7%] py-[5%] shadow-xl 
+      border border-solid border-[#C4C4C4] mx-auto"
+    >
+
       <section className="flex flex-row justify-between items-end">
         <h2 className="font-sans text-[2.4rem] font-bold text-[#1B1A1E]">Top Sellers</h2>
         <p className="font-sans text-[1.6rem] text-[#24D4FB] cursor-pointer hover:underline">See all</p>

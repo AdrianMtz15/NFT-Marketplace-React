@@ -4,13 +4,14 @@ import './index.css';
 import arrowRightIcon from '../assets/ico/arrow-right.png';
 import { ReactComponent as HomeIcon } from '../assets/ico/home.svg';
 import { ReactComponent as CategoryIcon } from '../assets/ico/category.svg';
-import { ReactComponent as FolderIcon } from '../assets/ico/folder.svg';
+// import { ReactComponent as FolderIcon } from '../assets/ico/folder.svg';
 import { ReactComponent as SettingIcon } from '../assets/ico/setting.svg';
-import { ReactComponent as WalletIcon } from '../assets/ico/wallet.svg';
+// import { ReactComponent as WalletIcon } from '../assets/ico/wallet.svg';
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid';
 import { useAppSelector } from '../../../utils/hooks/useStore';
 
 function Navbar() {
+  const isNavActive = useAppSelector(state => state.session.navActive);
   const isAuth = useAppSelector(state => state.session.isAuth);
   const navLinks = [
     {
@@ -24,16 +25,16 @@ function Navbar() {
       icon: <CategoryIcon/>,
       defaultNav: true
     },
-    {
-      title: "My Collection",
-      url: '/my-collection',
-      icon: <FolderIcon/>
-    },
-    {
-      title: "Wallet",
-      url: '/wallet',
-      icon: <WalletIcon/>
-    },
+    // {
+    //   title: "My Collection",
+    //   url: '/my-collection',
+    //   icon: <FolderIcon/>
+    // },
+    // {
+    //   title: "Wallet",
+    //   url: '/wallet',
+    //   icon: <WalletIcon/>
+    // },
     {
       title: "My Account",
       url: '/my-account',
@@ -47,13 +48,15 @@ function Navbar() {
     },
   ]
 
+
   return(
     <nav 
-      className="shadow overflow-auto fixed top-0 w-[20vw] h-[100vh] 
-      pt-[30px] border-solid border border-[#D9D9D9]"
+      className={`shadow overflow-auto fixed top-0 ${isNavActive ? 'left-0' : 'left-[-100%]'}  
+      w-[100vw] h-[90vh] lg:h-[100vh] mt-[10vh] lg:mt-0 pt-[30px] border-solid border 
+      border-[#D9D9D9] lg:left-0 lg:w-[20vw] z-30 bg-white`}
     >
 
-      <ul className="ml-[20%] mb-60">
+      <ul className="ml-[10%] mb-60 lg:ml[20%]">
         {
           navLinks.map((item) => {
             if(isAuth) {
@@ -79,9 +82,9 @@ function Navbar() {
       </ul>
 
       <section 
-        className={`cursor-default relative pb-[20px] mb-[30px] 
+        className={`cursor-default absolute bottom-0 left-[10%] mx-auto pb-[20px] mb-[30px] 
         rounded-[12px] opacity-95 bg-[url('src/components/global/assets/img/nav-background.png')] 
-        bg-[#942BD9] pt-[30px] pl-[10px] bottom-0 right-0 left-0 w-[70%] m-[auto]`}>
+        bg-[#942BD9] pt-[30px] pl-[10px] w-[75%] max-w-[200px]`}>
 
           <h1 className="text-white mb-[30px] font-bold text-[3rem]">Earn up to $100 worth of NFT</h1>
 

@@ -5,9 +5,9 @@ import { Navbar } from '../components/global/Navbar';
 import { Dashboard } from '../pages/Dashboard';
 import { Marketplace } from '../pages/Marketplace';
 import { Checkout } from '../pages/Checkout';
-import { MyCollection } from '../pages/MyCollection';
+// import { MyCollection } from '../pages/MyCollection';
 import { MyAccount } from '../pages/MyAccount';
-import { Wallet } from '../pages/Wallet';
+// import { Wallet } from '../pages/Wallet';
 import { NotFound } from '../pages/NotFound';
 import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
@@ -25,9 +25,9 @@ const AppRoutes = () => {
     { path: '/', element: isAuth ? <Dashboard/> : <Navigate to={'/sign-in'}/> },
     { path: '/marketplace', element: <Marketplace/> },
     { path: '/marketplace/checkout/:id', element: <Checkout/> },
-    { path: '/my-collection', element: isAuth ? <MyCollection/> : <Navigate to={'/sign-in'}/> },
+    // { path: '/my-collection', element: isAuth ? <MyCollection/> : <Navigate to={'/sign-in'}/> },
     { path: '/my-account', element: isAuth ? <MyAccount/> : <Navigate to={'/sign-in'}/> },
-    { path: '/wallet', element: isAuth ? <Wallet/> : <Navigate to={'/sign-in'}/>},
+    // { path: '/wallet', element: isAuth ? <Wallet/> : <Navigate to={'/sign-in'}/>},
     { path: '/sign-in', element: isAuth ? <Navigate to={'/'}/> : <SignIn/> },
     { path: '/sign-up', element: isAuth ? <Navigate to={'/'}/> : <SignUp/> },
     { path: '/*', element: <NotFound/> },

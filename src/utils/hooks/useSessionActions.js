@@ -1,5 +1,5 @@
 import { useAppDispatch } from "./useStore";
-import { login, logout } from "../store/session/slice";
+import { login, logout, toggleNav } from "../store/session/slice";
 
 export function useSessionActions() {
   const dispatch = useAppDispatch();
@@ -12,10 +12,13 @@ export function useSessionActions() {
     dispatch(logout());
   }
 
-  
+  const sessionToggleNav = () => {
+    dispatch(toggleNav());
+  }
 
   return {
     sessionLogin,
-    sessionLogout
+    sessionLogout,
+    sessionToggleNav
   }
 }

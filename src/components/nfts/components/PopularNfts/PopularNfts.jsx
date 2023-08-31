@@ -10,7 +10,9 @@ export function PopularNfts({ setNftOpen }) {
   }, []);
 
   return(
-    <div className="relative grid gap-[2rem] grid-cols-3 w-full h-max-h mt-[30px]">
+    <div 
+      className="relative flex flex-row flex-wrap justify-center w-full 
+      max-w-[700px] mt-[30px] mx-auto">
       {
         nfts?.map(item => (
           <Card 
