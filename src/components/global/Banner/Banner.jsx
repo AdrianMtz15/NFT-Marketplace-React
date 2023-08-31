@@ -1,10 +1,11 @@
 import { Button } from "../Button";
 import banner from "../assets/img/dashboard-banner.png";
+import bannerMask from "../assets/img/banner-mask.png"
 
 export function Banner() {
   return(
     <div className="mt-[3.1vh] relative flex flex-row 
-      bg-[url('./src/components/global/assets/img/banner-mask.png')]  py-[2.5rem] 
+      bg-[url('../assets/banner-mask-19f97f75.png')]  py-[2.5rem] 
       px-[3rem] w-[100%] max-w-[700px] h-[max-content] bg-[#0997FF] opacity-90 
       rounded-[12px] mx-auto">
 
