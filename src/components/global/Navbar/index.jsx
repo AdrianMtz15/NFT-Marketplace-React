@@ -83,7 +83,7 @@ function Navbar() {
 
       <section 
         className={`cursor-default absolute bottom-0 left-[10%] mx-auto pb-[20px] mb-[30px] 
-        rounded-[12px] opacity-95 bg-[url('src/components/global/assets/img/nav-background.png')] 
+        rounded-[12px] opacity-95 bg-[url('../assets/img/nav-background.png')] 
         bg-[#942BD9] pt-[30px] pl-[10px] w-[75%] max-w-[200px]`}>
 
           <h1 className="text-white mb-[30px] font-bold text-[3rem]">Earn up to $100 worth of NFT</h1>
