@@ -4,7 +4,7 @@ import banner from "../assets/img/dashboard-banner.png";
 export function Banner() {
   return(
     <div className="mt-[3.1vh] relative flex flex-row 
-      bg-[url('../assets/img/banner-mask.png')]  py-[2.5rem] 
+      bg-[url('../assets/banner-mask.png')]  py-[2.5rem] 
       px-[3rem] w-[100%] max-w-[700px] h-[max-content] bg-[#0997FF] opacity-90 
       rounded-[12px] mx-auto">
 
