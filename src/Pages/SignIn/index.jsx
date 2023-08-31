@@ -8,6 +8,8 @@ import { MainLayout } from '../../components/global/MainLayout';
 import { useSessionActions } from '../../utils/hooks/useSessionActions';
 import { useLocalStorage } from '../../utils/hooks/useLocalStorage';
 
+import isEmail from 'validator/lib/isEmail';
+
 function SignIn() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -16,10 +18,26 @@ function SignIn() {
   const { sessionLogin } = useSessionActions();
   const { setKey } = useLocalStorage();
 
+  const handleValidateInputs = () => {
+    const isEmailValid = isEmail(email);
+
+    if(!isEmailValid || email.length <= 0) {
+      alert('Invalid Email');
+      throw new Error('Invalid Email');
+    }
+
+    if(password.length <= 0) {
+      alert('Invalid Password');
+      throw new Error('Invalid Password');
+    }
+    
+  }
+
   const handleSignIn = async () => {
     const username = email.substring(0, email.lastIndexOf('@'));
 
     try {
+      handleValidateInputs();
       await signInWithEmailAndPassword(auth, email, password);
       sessionLogin(username, email, password);
       navigate('/');
@@ -32,7 +50,10 @@ function SignIn() {
         }
       });
     } catch (error) {
-      console.error('Error al logear usuario', error);
+      if(error.message == 'Firebase: Error (auth/wrong-password).' || error.message == 'Firebase: Error (auth/user-not-found).') {
+        alert('Invalid Credentials');
+      }
+      console.error(error.message);
     }
   }
 

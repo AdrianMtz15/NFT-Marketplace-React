@@ -9,6 +9,7 @@ function Sidebar() {
     return(
         <>
         {
+            
             isAuth ?
             <>
                 <ProfileBar/>
@@ -20,7 +21,8 @@ function Sidebar() {
                     <TopSellers/>
                 </aside>
             </>
-            : null
+            : 
+            <ProfileBar/>
         }
         </>
     )
